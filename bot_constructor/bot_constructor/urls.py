@@ -20,9 +20,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('authentication.urls')),
     path('', include('constructor.urls')),
-    """
+
+
+]
+
+"""
     Объясняю, две привязки нужны для того чтоб у нас не было лишней хуйни site.com/user/register
     Вместо этого на выходе получим site.com/authentication где будут обе формы. Просьба к Тиму, НЕ создавай в своем приложении ссылку на домашнюю path('', func) 
     """
-
-]
