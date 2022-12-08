@@ -1,8 +1,9 @@
 from django.urls import path, include
-from .views import index, createnewbot, BotAddCommand
+from .views import createnewbot, BotAddCommand, func
 
 urlpatterns = [
-    path('', index, name='home'),
+
     path('create-new-bot/', createnewbot, name='create-new-bot'),
-    path('bot-add-command/', BotAddCommand, name='bot-add-command')
+    path('bot-add-command/', BotAddCommand.as_view(), name='bot-add-command'),
+    path('', func, name='bots')
 ]

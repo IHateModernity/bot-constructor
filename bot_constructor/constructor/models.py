@@ -9,7 +9,7 @@ class Command(models.Model):
 
     bot_name = models.CharField("Bot's name", max_length=30) # Будет вылазить выбор всех ботов пользователя
 
-    type = models.CharField("Type", max_length=30) # Тип команды бота
+    type = models.CharField("Type", max_length=10) # Тип команды бота
 
     command = models.TextField('Command', max_length=255) # Команда которая будет писаться через слеш
 
