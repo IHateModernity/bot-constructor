@@ -1,0 +1,27 @@
+{% extends 'auth_base.html' %}
+
+{% block title %}Authenticate{% endblock %}
+
+{% block content %}
+
+{{ user }}
+
+<form method="post" name="login">
+    {% csrf_token %}
+    <h5>Registration</h5>
+    username:{{ form.username }} <br>
+    email:{{ form.email }}<br>
+    password:{{ form.password1 }}<br>
+    repeat password:{{ form.password2 }}<br>
+    <button type="submit" name="register">register</button>
+</form>
+{{ errors }}
+
+<form method="post" name="login">
+    {% csrf_token %}
+    <h5>Login</h5>
+    <input type="text" name="username" id="username" placeholder="Username"><br>
+    <input type="password" name="password" placeholder="Password"><br>
+    <button type="submit" name="login">Login</button>
+</form>
+{% endblock %}

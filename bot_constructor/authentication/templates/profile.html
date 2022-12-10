@@ -1,0 +1,9 @@
+{% extends 'auth_base.html' %}
+
+{% block title %} Profile {{ user_pk }} {% endblock %}
+
+{% block content %}
+    {{ user_pk.username }}<br>
+    {{ user_pk.email }}<br>
+    {{ user_pk.telegram }}<br>
+{% endblock %}
