@@ -33,8 +33,12 @@ class CreateNewBot(View):
 class BotAddCommand(View):
     """Class for create task"""
     template_name = 'constructor/bot-add-command.html'
-    bots = Bot.objects.all()
+    context_object_name = 'bots'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['bots'] = self.objects.all()
+        return context
 
 
     def get(self, request):
@@ -45,7 +49,8 @@ class BotAddCommand(View):
         return render(request,
                       self.template_name,
                       context={
-                          "form": CommandCreateForm
+                          "form": CommandCreateForm,
+                          "bots": Bot.objects.all()
                       }
                       )
 
