@@ -6,5 +6,28 @@
 </head>
 <body>
     <h1>Add command page</h1>
+    <form method="post" name="">
+        {% csrf_token %}
+
+
+        <select type="text" name="bot_name" id="id_bot_name" onchange="doSomething()">
+            {% for bot in bots %}
+                <option>{{ bot.bot_username }}</option>
+                <input type="text" name="bot_token" maxlength="30" required="" id="id_bot_token" value="{{ bot.bot_token }}" readonly>
+            {% empty %}
+                <option>Select a bot</option>
+            {% endfor %}
+        </select>
+        <br>
+        <select type="text" name="type" id="id_type" >
+            <option>command</option>
+            <option>message</option>
+        </select>
+
+        <input name="message" maxlength="10" required="" id="id_message" value="Target message">
+        <textarea type="text" name="answer" maxlength="255" required="" id="id_answer"></textarea>
+
+        <button type="submit" name="Submit">Submitt</button>
+    </form>
 </body>
 </html>
