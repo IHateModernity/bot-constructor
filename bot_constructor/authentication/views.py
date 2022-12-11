@@ -25,6 +25,7 @@ def authenticate_(request):
 
         username = request.POST['username']
         password = request.POST['password']
+
         user = authenticate(request, username=username, password=password)
 
         if user is not None:
@@ -42,15 +43,13 @@ def authenticate_(request):
 
         if form.is_valid():
             user = form.save()
-            user.set_password(user.password)
+            user.set_password(user.password)  # хешируем пассворд
             user.save()
 
             username = form.cleaned_data.get('username')
             password = make_password(form.cleaned_data.get('password'))
             email = form.cleaned_data.get('email')
-            print('username', username)
-            print('email', email)
-            print('password', password)
+
             user = authenticate(request, username=username, password=password, email=email)
 
             if user is not None:
@@ -58,7 +57,7 @@ def authenticate_(request):
                 return redirect('authentication')
 
         else:
-            print('else')
+
             return render(request,
                           template_name,
                           context={
@@ -68,7 +67,32 @@ def authenticate_(request):
                           )
 
 
-def profile(request, pk):
-    user_pk = CustomUser.objects.filter(username=pk)
+class ProfileView(View):
+    """Profile view"""
+    template_name = 'profile.html'
 
-    return render(request, 'profile.html', context={'user_pk': user_pk[0]})
+    def get(self, request, pk):
+        user_pk = CustomUser.objects.get(username=pk)
+        return render(request, self.template_name, context={'user_pk': user_pk})
+
+    def post(self, request, pk):
+        user_pk = CustomUser.objects.get(username=pk)
+
+        telegram_id = request.POST['telegram_id']
+        if telegram_id != '':
+            if telegram_id[0] != '@':
+                return render(request, self.template_name, context={
+                    'user_pk': user_pk,
+                    'info': 'Not valid telegram_id'}
+                    )
+            else:
+                user_pk.telegram_id = telegram_id
+        if request.FILES != {}:
+            user_pk.avatar = request.FILES['file']
+
+        user_pk.save()
+
+        return render(request, self.template_name, context={
+                    'user_pk': user_pk,
+                    'info': 'Successfully updated'}
+                    )
