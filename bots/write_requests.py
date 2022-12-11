@@ -46,3 +46,5 @@ def write_file_answer(outfile: str, path_db: str, name_bot='', token_bot=''):
         text_from_exemple[3] = 'requests = ' + str(requests_for_bot)
         # запись в файл
         f.write(''.join(text_from_exemple))
+
+write_file_answer(outfile='exemple_bot_script.py', path_db='', name_bot='hard', token_bot='fuck')
