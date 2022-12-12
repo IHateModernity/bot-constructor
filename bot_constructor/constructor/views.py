@@ -3,10 +3,24 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views import View
 from .forms import CommandCreateForm, CreateNewBotForm
-from .models import Bot
+from .models import Bot, Command
 
-def func(request):
-    return HttpResponse('123')
+class BotList(View):
+
+    template_name = 'constructor/bots-list.html'
+
+
+    def get(self, request):
+        """Func which answer the GET method
+        return template with task form
+        """
+
+        return render(request,
+                      self.template_name,
+                      context={
+                          "bots": Bot.objects.all()
+                      }
+                      )
 
 class CreateNewBot(View):
     template_name = 'constructor/create-new-bot.html'
@@ -65,10 +79,18 @@ class BotAddCommand(View):
             commit = form.save(commit=False)
             commit.user = request.user
             commit.save()
-            """
-            место для вызова функции которая перезаписывает код бота
-            
-            """
+
+            print(request)
+            commands = Command.objects.all().filter(bot_name=self.request.POST.get('bot_name'))
+            ######################
+            # Place for script   #
+
+            for command in commands:
+                print(command.message, command.answer)
+
+
+            ######################
+
             return redirect('bots')
         else:
             context = {'form': form,

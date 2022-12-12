@@ -3,7 +3,31 @@
 {% block title %} Profile {{ user_pk }} {% endblock %}
 
 {% block content %}
-    {{ user_pk.username }}<br>
-    {{ user_pk.email }}<br>
-    {{ user_pk.telegram }}<br>
+    {% if user == user_pk %}
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            Change avatar: <input id="file-input" type="file" name="file" multiple placeholder="Choice file"><br>
+
+            Your telegram id: <input type="text" name="telegram_id" id="telegram_id" placeholder='{{ user_pk.telegram_id }}'><br>
+            {{ info }}
+            <button type="submit" name="update">Update</button>
+
+        </form>
+    {% endif %}
+
+    Avatar: {{ user.avatar }}<br>
+
+    Username:{{ user_pk.username }}<br>
+
+    Email:{{ user_pk.email }}<br>
+
+    Telegram:{{ user_pk.telegram_id }}<br>
+
+    {% if user == user_pk %}
+            <form action="{% url 'logout' %}">
+        <button type="submit" class="btn btn-success">Logout</button>
+    </form>
+    {% endif %}
+
+
 {% endblock %}
