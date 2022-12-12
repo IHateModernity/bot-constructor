@@ -6,4 +6,4 @@ def about(request):
 
 def index(request):
     """Функция для главной страницы"""
-    return HttpResponse('Main')
+    return render(request, 'main/index.html')

@@ -6,6 +6,12 @@
 </head>
 <body>
     <h1>Add command page</h1>
+    <a href="{% url 'home' %}">Home page</a>
+    <br>
+    <br>
+    <a href="{% url 'bots' %}">Bots</a>
+    <br>
+    <br>
     <form method="post" name="">
         {% csrf_token %}
 

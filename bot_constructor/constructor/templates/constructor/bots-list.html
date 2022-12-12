@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bots</title>
+</head>
+<body>
+    <h1>Bots list</h1>
+    <a href="{% url 'home' %}">Home page</a>
+    <br>
+    <br>
+    <a href="{% url 'bot-add-command' %}">Add command</a>
+    <br>
+    {% for bot in bots %}
+        <h2>{{ bot.bot_username }}</h2>
+    {% endfor %}
+</body>
+</html>

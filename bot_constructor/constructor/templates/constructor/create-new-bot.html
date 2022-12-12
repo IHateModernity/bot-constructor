@@ -5,6 +5,13 @@
     <title>Create new bot</title>
 </head>
 <body>
+    <h1>Create new bot</h1>
+    <a href="{% url 'home' %}">Home page</a>
+    <br>
+    <br>
+    <a href="{% url 'bots' %}">Bots</a>
+    <br>
+    <br>
     <form method="post" name="">
         {% csrf_token %}
         {{ form }}

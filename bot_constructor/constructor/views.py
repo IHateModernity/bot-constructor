@@ -5,8 +5,26 @@ from django.views import View
 from .forms import CommandCreateForm, CreateNewBotForm
 from .models import Bot
 
-def func(request):
-    return HttpResponse('123')
+class BotList(View):
+    # context_object_name = 'bots'
+    template_name = 'constructor/bots-list.html'
+
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['bots'] = self.objects.all()
+    #     return context
+
+    def get(self, request):
+        """Func which answer the GET method
+        return template with task form
+        """
+
+        return render(request,
+                      self.template_name,
+                      context={
+                          "bots": Bot.objects.all()
+                      }
+                      )
 
 class CreateNewBot(View):
     template_name = 'constructor/create-new-bot.html'
