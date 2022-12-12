@@ -38,6 +38,7 @@ def authenticate_(request):
             }
             return render(request, template_name, context)
 
+
     elif request.method == "POST" and 'register' in request.POST:
         form = UserRegistrationForm(request.POST)
 
@@ -52,9 +53,11 @@ def authenticate_(request):
 
             user = authenticate(request, username=username, password=password, email=email)
 
+            print(username, password, email)
+
             if user is not None:
                 login(request, user)
-                return redirect('authentication')
+                return redirect('home')
 
         else:
 

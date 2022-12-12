@@ -4,16 +4,24 @@ from django.shortcuts import render, redirect
 from django.views import View
 from .forms import CommandCreateForm, CreateNewBotForm
 from .models import Bot, Command
+from django.urls import reverse_lazy
+from .bots.CreateBot import CreateBot
+
+import os
+import sys
+sys.path.append(os.path.join(os.getcwd()))
+
 
 class BotList(View):
 
     template_name = 'constructor/bots-list.html'
-
+    login_url = reverse_lazy('/authentication/')
 
     def get(self, request):
         """Func which answer the GET method
         return template with task form
         """
+        print(request.user)
 
         return render(request,
                       self.template_name,
@@ -51,7 +59,7 @@ class BotAddCommand(View):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['bots'] = self.objects.all()
+        context['bots'] = self.objects.all().filter(user=self.request.user)
         return context
 
 
@@ -80,14 +88,19 @@ class BotAddCommand(View):
             commit.user = request.user
             commit.save()
 
-            print(request)
             commands = Command.objects.all().filter(bot_name=self.request.POST.get('bot_name'))
+
+            list_of_commands = []
             ######################
             # Place for script   #
 
             for command in commands:
-                print(command.message, command.answer)
+                a = {'token': self.request.POST.get('bot_token'), 'name_bot': self.request.POST.get('bot_name'), 'target_message': command.message, 'answer': command.answer}
+                list_of_commands.append(a)
 
+            if list_of_commands:
+                bot = CreateBot(path_out_file="TESTmain.py", requests_for_bot=list_of_commands)
+            else: print('list is empty\n'*10)
 
             ######################
 

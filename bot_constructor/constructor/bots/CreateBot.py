@@ -1,8 +1,13 @@
+import os
+import sys
+sys.path.append(os.path.join(os.path.dirname(__file__),'bot_constructor/constructor/bots/'))
+
+
 class CreateBot:
 
     def __read_exemple_file(self):
 
-        with open('exemple_bot_script.txt', 'r', encoding='utf8') as f:
+        with open('constructor/bots/exemple_bot_script.txt', 'r', encoding='utf8') as f:
             return f.readlines()
 
     def __writefile(self, path_out_file: str, requests_for_bot: list[dict]):
