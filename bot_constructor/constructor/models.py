@@ -23,7 +23,7 @@ class Command(models.Model):
     creating_date = models.DateTimeField('Date of changing', null=True, auto_now=True) # Дата изменения бота (создания новой команды)
 
     def __str__(self):
-        return self.command
+        return self.type
 
     class Meta:
         verbose_name = 'Command'

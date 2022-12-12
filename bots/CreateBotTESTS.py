@@ -1,5 +1,5 @@
 import unittest
-from .CreateBot import CreateBot
+from bots.CreateBot import CreateBot
 
 class GetReq:
 
