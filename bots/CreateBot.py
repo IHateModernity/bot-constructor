@@ -13,6 +13,8 @@ class CreateBot:
 
             f.write(''.join(text_from_exemple))
 
+    # path_out_file - файл в который запишем код, который отправим позже на сайт
+    # requests_for_bot - запросы бота, тот самый список с токеном, именем и тп.
     def __init__(self, path_out_file: str, requests_for_bot: list[dict]):
         if type(path_out_file) != str:
             raise "path_out_file is not str"
