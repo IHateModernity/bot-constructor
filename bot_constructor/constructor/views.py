@@ -40,6 +40,51 @@ class BotList(View):
                           "commands": Command.objects.all()
                       }
                       )
+    def post(self, request):
+        a = request.POST
+        bot_name, token = [i for i in a][1].split()
+        print(bot_name, token)
+
+        ######################
+        # Place for script   #
+
+        commands = Command.objects.all().filter(bot_name=bot_name)
+
+        list_of_commands = []
+
+        for command in commands:
+            a = {'token': token, 'name_bot': bot_name,
+                 'target_message': command.message, 'answer': command.answer}
+            list_of_commands.append(a)
+
+        if list_of_commands:
+            bot = CreateBot(path_out_file="TESTmain.py", requests_for_bot=list_of_commands)
+        else:
+            print('list is empty\n' * 10)
+
+        ######################
+
+        return redirect('bots')
+
+    # ######################
+    # # Place for script   #
+    #
+    # commands = Command.objects.all().filter(bot_name=self.request.POST.get('bot_name'))
+    #
+    # list_of_commands = []
+    #
+    # for command in commands:
+    #     a = {'token': self.request.POST.get('bot_token'), 'name_bot': self.request.POST.get('bot_name'),
+    #          'target_message': command.message, 'answer': command.answer}
+    #     list_of_commands.append(a)
+    #
+    # if list_of_commands:
+    #     bot = CreateBot(path_out_file="TESTmain.py", requests_for_bot=list_of_commands)
+    # else:
+    #     print('list is empty\n' * 10)
+    #
+    # ######################
+
 
 
 class CreateNewBot(View):
@@ -90,7 +135,6 @@ class CommandDeleteView(DeleteView):
         return reverse_lazy('bot-edit-page', kwargs={'pk': agent_id})
 
 
-
 class BotAddCommand(View):
     """Class for create task"""
     template_name = 'constructor/bot-add-command.html'
@@ -127,11 +171,14 @@ class BotAddCommand(View):
             commit.user = request.user
             commit.save()
 
+
+            ######################
+            # Place for script   #
+
             commands = Command.objects.all().filter(bot_name=self.request.POST.get('bot_name'))
 
             list_of_commands = []
-            ######################
-            # Place for script   #
+
 
             for command in commands:
                 a = {'token': self.request.POST.get('bot_token'), 'name_bot': self.request.POST.get('bot_name'), 'target_message': command.message, 'answer': command.answer}
@@ -144,6 +191,7 @@ class BotAddCommand(View):
             ######################
 
             return redirect('bots')
+
         else:
             context = {'form': form,
                        'errors': form.errors}

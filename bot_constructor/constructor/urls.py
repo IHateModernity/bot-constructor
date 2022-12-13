@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import CreateNewBot, BotAddCommand, BotList, BotEdit, CommandDeleteView
+from .views import *
 
 urlpatterns = [
     path('<str:pk>/', BotEdit.as_view(), name='bot-edit-page'),
