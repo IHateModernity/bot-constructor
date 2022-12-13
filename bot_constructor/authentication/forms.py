@@ -6,10 +6,7 @@ from .models import CustomUser
 
 class UserRegistrationForm(forms.ModelForm):
     """Form registration new user"""
-    email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control'}))
-    username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
-    password1 = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
-    password2 = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
+    # переменная = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'})) НЕ ТРОГАЙТЕ ЭТУ ХНЮ
 
     class Meta:
         model = get_user_model()
