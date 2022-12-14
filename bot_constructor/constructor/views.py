@@ -19,7 +19,7 @@ from .bots.CreateBot import CreateBot
 # Путь к папке bots. Для написания скрипта бота
 import os
 import sys
-sys.path.append(os.path.join(os.getcwd()))
+sys.path.append(os.path.join('../../'))
 
 
 class BotList(View):
@@ -40,10 +40,10 @@ class BotList(View):
                           "commands": Command.objects.all()
                       }
                       )
+
     def post(self, request):
         a = request.POST
         bot_name, token = [i for i in a][1].split()
-        print(bot_name, token)
 
         ######################
         # Place for script   #
@@ -57,15 +57,21 @@ class BotList(View):
                  'target_message': command.message, 'answer': command.answer}
             list_of_commands.append(a)
 
+        # path = "constructor/static/constructor/files/" + bot_name + ".py"
+        path = "media/scripts/" + bot_name + ".py"
         if list_of_commands:
-            bot = CreateBot(path_out_file="TESTmain.py", requests_for_bot=list_of_commands)
+            script = CreateBot(path_out_file=path, requests_for_bot=list_of_commands)
+            bot = Bot.objects.get(bot_username=bot_name)
+            bot.has_script = True
+            bot.script_path = bot_name + ".py"
+            bot.save()
+            return redirect('bots')
         else:
             print('list is empty\n' * 10)
 
         ######################
 
         return redirect('bots')
-
     # ######################
     # # Place for script   #
     #
@@ -84,6 +90,7 @@ class BotList(View):
     #     print('list is empty\n' * 10)
     #
     # ######################
+
 
 
 
@@ -171,29 +178,9 @@ class BotAddCommand(View):
             commit.user = request.user
             commit.save()
 
-
-            ######################
-            # Place for script   #
-
-            commands = Command.objects.all().filter(bot_name=self.request.POST.get('bot_name'))
-
-            list_of_commands = []
-
-
-            for command in commands:
-                a = {'token': self.request.POST.get('bot_token'), 'name_bot': self.request.POST.get('bot_name'), 'target_message': command.message, 'answer': command.answer}
-                list_of_commands.append(a)
-
-            if list_of_commands:
-                bot = CreateBot(path_out_file="TESTmain.py", requests_for_bot=list_of_commands)
-            else: print('list is empty\n'*10)
-
-            ######################
-
             return redirect('bots')
 
         else:
             context = {'form': form,
                        'errors': form.errors}
             return render(request, self.template_name, context)
-

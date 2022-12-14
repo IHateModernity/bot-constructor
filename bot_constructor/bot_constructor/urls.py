@@ -15,17 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('authentication.urls')),
     path('bots/', include('constructor.urls')),
     path('', include('main.urls'))
-
-
-]
-
-"""
-    Объясняю, две привязки нужны для того чтоб у нас не было лишней хуйни site.com/user/register
-    Вместо этого на выходе получим site.com/authentication где будут обе формы. Просьба к Тиму, НЕ создавай в своем приложении ссылку на домашнюю path('', func) 
-    """
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

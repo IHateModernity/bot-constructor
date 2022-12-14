@@ -7,6 +7,8 @@ class Bot(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     bot_username = models.CharField("Bot's username", max_length=30)
     bot_token = models.CharField("Bot's token", max_length=50)
+    has_script = models.BooleanField('Has script?', default=False)
+    script_path = models.CharField('path', default='', max_length=70)
 
     def __str__(self):
         return self.bot_username

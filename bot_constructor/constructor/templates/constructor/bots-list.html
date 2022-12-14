@@ -14,13 +14,21 @@
     <a href="{% url 'bot-add-command' %}">Add command</a>
     <br>
     {% for bot in bots %}
+    <div style="height: 70px; width: 100%; display: flex; justify-content: space-around">
         <h2>{{ bot.bot_username }}</h2>
         <h2>{{ bot.user }}</h2>
         <a href="{% url 'bot-edit-page' pk=bot.bot_username %}">Bot</a>
         <form method="post">
             {% csrf_token %}
-            <button type="submit" name="{{ bot.bot_username }} {{ bot.bot_token }}">Print shit</button>
+            <button type="submit" name="{{ bot.bot_username }} {{ bot.bot_token }}">Create script</button>
         </form>
+        {% if bot.has_script %}
+            <button><a href="{% static 'constructor/static/constructor/files/' %}{{ bot.script_path }}" download>Download</a></button>
+        {% else %}
+            <h5>Error</h5>
+        {% endif %}
+    </div>
+
     {% endfor %}
 </body>
 </html>
