@@ -26,12 +26,14 @@ def authenticate_(request):
         username = request.POST['username']
         password = request.POST['password']
 
-        user = authenticate(request, username=username, password=password)
+        user = authenticate(username=username, password=password)
+        print('\n' * 10, username, password, '\n' * 10)
+        # username = form.cleaned_data.get('username')
+        # password = form.cleaned_data.get('password')
 
         if user is not None:
-            login(request, user)
+            login(request, user, backend='django.contrib.auth.backends.ModelBackend')
             return redirect('home')
-
         else:
             context = {
                 'errors': 'Login error,try again...'
@@ -40,24 +42,34 @@ def authenticate_(request):
 
 
     elif request.method == "POST" and 'register' in request.POST:
-        form = UserRegistrationForm(request.POST)
+        form = UserRegistrationForm(request.POST, request.FILES)
 
         if form.is_valid():
+            # user = form.save()
+            # user.set_password(user.password)  # хешируем пассворд
+            # user.save()
+            #
+            # username = form.cleaned_data.get('username')
+            # password = make_password(form.cleaned_data.get('password'))
+            # email = form.cleaned_data.get('email')
+            #
+            # user = authenticate(request, username=username, password=password, email=email)
+            #
+            # print('\n'*10)
+            # print(username, password, email)
+            # print('\n' * 10)
             user = form.save()
-            user.set_password(user.password)  # хешируем пассворд
-            user.save()
+
 
             username = form.cleaned_data.get('username')
-            password = make_password(form.cleaned_data.get('password'))
-            email = form.cleaned_data.get('email')
+            password = form.cleaned_data.get('password')
 
-            user = authenticate(request, username=username, password=password, email=email)
+            user.save()
+            login(request, user, backend='django.contrib.auth.backends.ModelBackend')
+            print('\n' * 10, user.password, user.username, '\n'*10)
 
-            print(username, password, email)
+            return redirect('home')
 
-            if user is not None:
-                login(request, user)
-                return redirect('home')
 
         else:
 

@@ -6,7 +6,7 @@
 
 {{ user }}
 
-<form method="post" name="login">
+<form method="POST" name="register">
     {% csrf_token %}
     <h5>Registration</h5>
     username:{{ form.username }} <br>
@@ -17,11 +17,11 @@
 </form>
 {{ errors }}
 
-<form method="post" name="login">
+<form method="POST" name="login">
     {% csrf_token %}
     <h5>Login</h5>
     <input type="text" name="username" id="username" placeholder="Username"><br>
-    <input type="password" name="password" placeholder="Password"><br>
+    <input type="password" name="password" id="password" placeholder="Password"><br>
     <button type="submit" name="login">Login</button>
 </form>
 {% endblock %}
