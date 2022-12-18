@@ -4,7 +4,12 @@
 
 {% block content %}
 
-{{ user }}
+    {% if user.is_authenticated %}
+        {{ user }}
+        <a href="{% url 'logout' %}"><button name="logout">Logout</button></a>
+    {% endif %}
+
+
 
 <form method="POST" name="register">
     {% csrf_token %}

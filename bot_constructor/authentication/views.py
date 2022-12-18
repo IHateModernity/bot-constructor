@@ -2,12 +2,13 @@ from django.contrib.auth.hashers import make_password
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .forms import UserRegistrationForm
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, views, login, logout
 # Create your views here.
 from django.views import View
-from django.contrib.auth import views, login
+
 
 from .models import CustomUser
+
 
 
 def authenticate_(request):
@@ -100,3 +101,8 @@ class ProfileView(View):
                     'user_pk': user_pk,
                     'info': 'Successfully updated'}
                     )
+
+
+def logout_user(request):
+    logout(request)
+    return redirect('authentication')

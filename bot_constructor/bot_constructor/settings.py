@@ -58,7 +58,7 @@ ROOT_URLCONF = 'bot_constructor.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -109,7 +109,7 @@ AUTHENTICATION_BACKENDS = (
 )
 
 
-LOGIN_URL = '/authentication/'
+LOGIN_URL = 'authentication'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/

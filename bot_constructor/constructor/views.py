@@ -5,6 +5,7 @@ from django.views import View
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import DeleteView
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 from .forms import CommandCreateForm, CreateNewBotForm
@@ -13,19 +14,14 @@ from .models import Bot, Command
 from .bots.CreateBot import CreateBot
 
 
-
-
-
 # Путь к папке bots. Для написания скрипта бота
 import os
 import sys
 sys.path.append(os.path.join('../../'))
 
 
-class BotList(View):
-
+class BotList(LoginRequiredMixin, View):
     template_name = 'constructor/bots-list.html'
-    login_url = reverse_lazy('/authentication/')
 
 
     def get(self, request):
@@ -92,9 +88,7 @@ class BotList(View):
     # ######################
 
 
-
-
-class CreateNewBot(View):
+class CreateNewBot(LoginRequiredMixin, View):
     template_name = 'constructor/create-new-bot.html'
 
     def get(self, request):
@@ -116,8 +110,8 @@ class CreateNewBot(View):
             return render(request, self.template_name)
 
 
-class BotEdit(DetailView):
-    template_name = 'constructor/bot.html'
+class BotEdit(LoginRequiredMixin, DetailView):
+    template_name = 'constructor/bot_edit.html'
 
 
     def get(self, request, pk):
@@ -133,7 +127,7 @@ class BotEdit(DetailView):
                       )
 
 
-class CommandDeleteView(DeleteView):
+class CommandDeleteView(LoginRequiredMixin, DeleteView):
     model = Command
     context_object_name = 'command'
 
@@ -142,7 +136,7 @@ class CommandDeleteView(DeleteView):
         return reverse_lazy('bot-edit-page', kwargs={'pk': agent_id})
 
 
-class BotAddCommand(View):
+class BotAddCommand(LoginRequiredMixin, View):
     """Class for create task"""
     template_name = 'constructor/bot-add-command.html'
     context_object_name = 'bots'
@@ -159,7 +153,7 @@ class BotAddCommand(View):
         """
 
         return render(request,
-                      self.template_name,
+                      'constructor/bot-add-command.html',
                       context={
                           "form": CommandCreateForm,
                           "bots": Bot.objects.all(),
@@ -184,3 +178,22 @@ class BotAddCommand(View):
             context = {'form': form,
                        'errors': form.errors}
             return render(request, self.template_name, context)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

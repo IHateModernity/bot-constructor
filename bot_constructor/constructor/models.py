@@ -13,8 +13,6 @@ class Bot(models.Model):
     def __str__(self):
         return self.bot_username
 
- # {"token":"1:qqw", "name_bot":"test", "target_type":"command", "target_message":"start", "answer":"[test] /start"},
-
 
 class Command(models.Model):
     bot_name = models.CharField('Name', max_length=30) # Будет вылазить выбор всех ботов пользователя
