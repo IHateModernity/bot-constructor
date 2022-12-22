@@ -24,6 +24,7 @@
         </form>
         {% if bot.has_script %}
             <button><a href="{% static 'constructor/static/constructor/files/' %}{{ bot.script_path }}" download>Download</a></button>
+            <a href="">{{ bot.script_path }}</a>
         {% else %}
             <h5>Error</h5>
         {% endif %}

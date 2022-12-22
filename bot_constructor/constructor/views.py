@@ -3,10 +3,10 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views import View
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import DeleteView
+from django.views.generic.edit import DeleteView, CreateView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
-
+from .forms import CreateNewBotForm
 
 from .forms import CommandCreateForm, CreateNewBotForm
 from .models import Bot, Command
@@ -54,12 +54,12 @@ class BotList(LoginRequiredMixin, View):
             list_of_commands.append(a)
 
         # path = "constructor/static/constructor/files/" + bot_name + ".py"
-        path = "media/scripts/" + bot_name + ".py"
+        path = "media/scripts/" + bot_name + ".txt"
         if list_of_commands:
             script = CreateBot(path_out_file=path, requests_for_bot=list_of_commands)
             bot = Bot.objects.get(bot_username=bot_name)
             bot.has_script = True
-            bot.script_path = bot_name + ".py"
+            bot.script_path = path
             bot.save()
             return redirect('bots')
         else:
@@ -88,26 +88,35 @@ class BotList(LoginRequiredMixin, View):
     # ######################
 
 
-class CreateNewBot(LoginRequiredMixin, View):
+class CreateNewBot(LoginRequiredMixin, CreateView):
     template_name = 'constructor/create-new-bot.html'
 
     def get(self, request):
-        context = {
-            'form': CreateNewBotForm
-        }
-        return render(request, self.template_name, context)
+        """Func which answer the GET method
+        return template with task form
+        """
+
+        return render(request,
+                      self.template_name,
+                      context={
+                          "form": CreateNewBotForm
+                      }
+                      )
 
     def post(self, request):
         form = CreateNewBotForm(request.POST)
         if form.is_valid():
+            commit = form.save(commit=False)
+            commit.user = request.user
             form.save()
+
             return redirect('bots')
         else:
             context = {
                 'form': form,
                 'errors': form.errors
             }
-            return render(request, self.template_name)
+            return render(request, self.template_name, context)
 
 
 class BotEdit(LoginRequiredMixin, DetailView):
@@ -178,22 +187,3 @@ class BotAddCommand(LoginRequiredMixin, View):
             context = {'form': form,
                        'errors': form.errors}
             return render(request, self.template_name, context)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

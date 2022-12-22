@@ -8,7 +8,8 @@ class Bot(models.Model):
     bot_username = models.CharField("Bot's username", max_length=30)
     bot_token = models.CharField("Bot's token", max_length=50)
     has_script = models.BooleanField('Has script?', default=False)
-    script_path = models.CharField('path', default='', max_length=70)
+    script_path = models.CharField('Path', default='', max_length=70)
+    script = models.FileField('Script', blank=True, upload_to='script/')
 
     def __str__(self):
         return self.bot_username
