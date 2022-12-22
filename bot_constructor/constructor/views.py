@@ -21,7 +21,10 @@ sys.path.append(os.path.join('../../'))
 
 
 class BotList(LoginRequiredMixin, View):
+    model = Bot
     template_name = 'constructor/bots-list.html'
+    context_object_name = 'bots'
+
 
 
     def get(self, request):
@@ -32,7 +35,7 @@ class BotList(LoginRequiredMixin, View):
         return render(request,
                       self.template_name,
                       context={
-                          "bots": Bot.objects.all(),
+                          "bots": Bot.objects.all().filter(user=self.request.user),
                           "commands": Command.objects.all()
                       }
                       )
@@ -54,12 +57,12 @@ class BotList(LoginRequiredMixin, View):
             list_of_commands.append(a)
 
         # path = "constructor/static/constructor/files/" + bot_name + ".py"
-        path = "media/scripts/" + bot_name + ".py"
+        path = "media/scripts/" + bot_name + '_' + token[:10] + ".py"
         if list_of_commands:
             script = CreateBot(path_out_file=path, requests_for_bot=list_of_commands)
             bot = Bot.objects.get(bot_username=bot_name)
             bot.has_script = True
-            bot.script_path = "/scripts/" + bot_name + ".py"
+            bot.script_path = "/scripts/" + bot_name + '_' + token[:10] + ".py"
             bot.save()
             return redirect('bots')
         else:
