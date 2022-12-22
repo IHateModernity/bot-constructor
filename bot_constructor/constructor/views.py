@@ -13,6 +13,8 @@ from .models import Bot, Command
 
 from .bots.CreateBot import CreateBot
 
+import hashlib
+
 
 # Путь к папке bots. Для написания скрипта бота
 import os
@@ -57,12 +59,14 @@ class BotList(LoginRequiredMixin, View):
             list_of_commands.append(a)
 
         # path = "constructor/static/constructor/files/" + bot_name + ".py"
-        path = "media/scripts/" + bot_name + '_' + token[:10] + ".py"
+        path = hashlib.md5(token.encode())
+        path = "media/scripts/" + bot_name + '_' + path.hexdigest() + ".py"
+        print(path)
         if list_of_commands:
             script = CreateBot(path_out_file=path, requests_for_bot=list_of_commands)
             bot = Bot.objects.get(bot_username=bot_name)
             bot.has_script = True
-            bot.script_path = "/scripts/" + bot_name + '_' + token[:10] + ".py"
+            bot.script_path = path[6:]
             bot.save()
             return redirect('bots')
         else:
