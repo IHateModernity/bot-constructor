@@ -54,12 +54,12 @@ class BotList(LoginRequiredMixin, View):
             list_of_commands.append(a)
 
         # path = "constructor/static/constructor/files/" + bot_name + ".py"
-        path = "media/scripts/" + bot_name + ".txt"
+        path = "media/scripts/" + bot_name + ".py"
         if list_of_commands:
             script = CreateBot(path_out_file=path, requests_for_bot=list_of_commands)
             bot = Bot.objects.get(bot_username=bot_name)
             bot.has_script = True
-            bot.script_path = path
+            bot.script_path = "/scripts/" + bot_name + ".py"
             bot.save()
             return redirect('bots')
         else:

@@ -9,7 +9,6 @@ class Bot(models.Model):
     bot_token = models.CharField("Bot's token", max_length=50)
     has_script = models.BooleanField('Has script?', default=False)
     script_path = models.CharField('Path', default='', max_length=70)
-    script = models.FileField('Script', blank=True, upload_to='script/')
 
     def __str__(self):
         return self.bot_username

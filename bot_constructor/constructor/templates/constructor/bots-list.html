@@ -23,8 +23,7 @@
             <button type="submit" name="{{ bot.bot_username }} {{ bot.bot_token }}">Create script</button>
         </form>
         {% if bot.has_script %}
-            <button><a href="{% static 'constructor/static/constructor/files/' %}{{ bot.script_path }}" download>Download</a></button>
-            <a href="">{{ bot.script_path }}</a>
+            <button><a href="{% get_media_prefix %}{{ bot.script_path }}" download>Download</a></button>
         {% else %}
             <h5>Error</h5>
         {% endif %}
