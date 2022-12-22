@@ -155,13 +155,6 @@ class CommandDeleteView(LoginRequiredMixin, DeleteView):
 class BotAddCommand(LoginRequiredMixin, View):
     """Class for create task"""
     template_name = 'constructor/bot-add-command.html'
-    context_object_name = 'bots'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['bots'] = self.objects.all().filter(user=self.request.user)
-        return context
-
 
     def get(self, request):
         """Func which answer the GET method
@@ -172,7 +165,7 @@ class BotAddCommand(LoginRequiredMixin, View):
                       'constructor/bot-add-command.html',
                       context={
                           "form": CommandCreateForm,
-                          "bots": Bot.objects.all(),
+                          "bots": Bot.objects.all().filter(user=self.request.user),
                       }
                       )
 
