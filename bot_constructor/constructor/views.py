@@ -148,8 +148,8 @@ class CommandDeleteView(LoginRequiredMixin, DeleteView):
     context_object_name = 'command'
 
     def get_success_url(self):
-        agent_id = self.object.bot_name
-        return reverse_lazy('bot-edit-page', kwargs={'pk': agent_id})
+        command_id = self.object.bot_name
+        return reverse_lazy('bot-edit-page', kwargs={'pk': command_id})
 
 
 class BotAddCommand(LoginRequiredMixin, View):
@@ -179,6 +179,8 @@ class BotAddCommand(LoginRequiredMixin, View):
         if form.is_valid():
             commit = form.save(commit=False)
             commit.user = request.user
+            bot = Bot.objects.get(bot_username=commit.bot_name)
+            commit.bot_token = bot.bot_token
             commit.save()
 
             return redirect('bots')

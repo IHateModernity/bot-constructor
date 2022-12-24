@@ -6,7 +6,7 @@ User = settings.AUTH_USER_MODEL
 class Bot(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     bot_username = models.CharField("Bot's username", max_length=30)
-    bot_token = models.CharField("Bot's token", max_length=50)
+    bot_token = models.CharField("Bot's token", max_length=50, null=False)
     has_script = models.BooleanField('Has script?', default=False)
     script_path = models.CharField('Path', default='', max_length=70)
 
@@ -16,7 +16,7 @@ class Bot(models.Model):
 
 class Command(models.Model):
     bot_name = models.CharField('Name', max_length=30) # Будет вылазить выбор всех ботов пользователя
-    bot_token = models.CharField('Token', default=None, max_length=30)
+    bot_token = models.CharField('Token', null=True, blank=True, max_length=30)
     type = models.CharField('Type', default='command', max_length=10) # Тип команды бота
     message = models.CharField('', default='Target message', max_length=10) # Команда которая будет писаться через слеш
     answer = models.TextField('Answer', max_length=255) # Ответ на эту команду

@@ -24,15 +24,6 @@
             {% endfor %}
         </select>
 
-        <select type="text" name="bot_token" id="id_bot_token">
-            {% for bot in bots %}
-                <option>{{ bot.bot_token }}</option>
-            {% empty %}
-                <option>Select a token</option>
-            {% endfor %}
-        </select>
-
-
         <select type="text" name="type" id="id_type" >
             <option>command</option>
             <option>message</option>

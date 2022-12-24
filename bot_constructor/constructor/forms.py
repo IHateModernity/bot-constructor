@@ -10,4 +10,4 @@ class CreateNewBotForm(ModelForm):
 class CommandCreateForm(ModelForm):
     class Meta:
         model = Command
-        fields = ['bot_name', 'bot_token', 'type', 'message', 'answer', ]
+        fields = ['bot_name', 'type', 'message', 'answer', ]
