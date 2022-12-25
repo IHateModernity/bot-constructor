@@ -5,7 +5,7 @@ from .forms import UserRegistrationForm
 from django.contrib.auth import authenticate, views, login, logout
 # Create your views here.
 from django.views import View
-
+from django.urls import reverse_lazy
 
 from .models import CustomUser
 
@@ -105,4 +105,4 @@ class ProfileView(View):
 
 def logout_user(request):
     logout(request)
-    return redirect('authentication')
+    return reverse_lazy('authentication')

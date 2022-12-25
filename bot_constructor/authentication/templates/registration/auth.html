@@ -1,32 +1,76 @@
 {% extends 'auth_base.html' %}
 
+{% load static %}
+
 {% block title %}Authenticate{% endblock %}
 
-{% block content %}
-
-    {% if user.is_authenticated %}
-        {{ user }}
-        <a href="{% url 'logout' %}"><button name="logout">Logout</button></a>
-    {% endif %}
 
 
+{% block links %}
+    <link rel="stylesheet" href="{% static 'authentication/css/auth.css' %}">
+    <script src="{% static 'authentication/js/index.js' %}"></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js'></script>
 
-<form method="POST" name="register">
-    {% csrf_token %}
-    <h5>Registration</h5>
-    username:{{ form.username }} <br>
-    email:{{ form.email }}<br>
-    password:{{ form.password1 }}<br>
-    repeat password:{{ form.password2 }}<br>
-    <button type="submit" name="register">register</button>
-</form>
-{{ errors }}
 
-<form method="POST" name="login">
-    {% csrf_token %}
-    <h5>Login</h5>
-    <input type="text" name="username" id="username" placeholder="Username"><br>
-    <input type="password" name="password" id="password" placeholder="Password"><br>
-    <button type="submit" name="login">Login</button>
-</form>
 {% endblock %}
+
+
+
+{% block content %}
+    <div class="container">
+        <div class="frame">
+          <div class="nav">
+            <ul class="links">
+              <li class="signin-active"><a class="btn">Войти</a></li>
+              <li class="signup-inactive"><a class="btn">Регистрация</a></li>
+            </ul>
+          </div>
+          <div ng-app ng-init="checked = false">
+                <form class="form-signin" action="" method="POST" name="login">
+                    {% csrf_token %}
+                    <label for="name">Username</label>
+                    <input class="form-styling" type="text" name="username" id="name" placeholder=""/>
+                    <label for="pass">Password</label>
+                    <input class="form-styling" type="password" name="password" id="pass" placeholder="">
+                    <input type="checkbox" id="checkbox"/>
+                    <label for="checkbox"><span class="ui"></span>Запомнить меня</label>
+
+                    <div>
+                        <button class="sign" type="submit" name="login">LOGIN</button>
+                    </div>
+                </form>
+
+                <form class="form-signup" action="" method="POST" name="register">
+                    {% csrf_token %}
+                    <label for="id_username">Username</label>
+                    <input class="form-styling" type="text" name="username" id="id_username" placeholder=""/>
+                    <label for="email">Email</label>
+                    <input class="form-styling" type="email" name="email" id="email" placeholder=""/>
+                    <label for="password1">Password</label>
+                    <input class="form-styling" type="password" name="password1" id="password1" placeholder=""/>
+                    <label for="password2">Confirm password</label>
+                    <input class="form-styling" type="password" name="password2" id="password2" placeholder=""/>
+<!--                    <a ng-click="checked = !checked" class="btn-signup">Sign Up</a>-->
+                    <div>
+                        <button class="sign" type="submit" name="register">SIGN UP</button>
+                    </div>
+                </form>
+                {{ errors }}
+            </div>
+
+            <div class="forgot">
+              <a href="#">Забыли пароль?</a>
+            </div>
+
+        </div>
+      </div>
+
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js'></script>
+
+    <script src="{% static 'authentication/js/index.js' %}"></script>
+
+
+{% endblock %}
+

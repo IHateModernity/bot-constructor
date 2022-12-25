@@ -5,6 +5,10 @@
     <title>Main</title>
 </head>
 <body>
+  {% if user.is_authenticated %}
+        {{ user }}
+      <a href="{% url 'logout' %}"><button name="logout">Logout</button></a>
+    {% endif %}
   <h1>Main Page</h1>
   <a href="{% url 'create-new-bot' %}">Create bot</a>
   <br>
