@@ -15,7 +15,7 @@ body{
 
 header {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     height: 7vh;
     width: 100%
 }
@@ -85,13 +85,73 @@ a:nth-child(5){
   left: 210px;
   background-color: #3498db;
 }
+
 .start-newcommand, a:nth-child(4):hover~.animation{
   width: 160px;
   left: 310px;
   background-color: #9b59b6;
 }
+
 .start-about, a:nth-child(5):hover~.animation{
   width: 120px;
   left: 470px;
   background-color: #e67e22;
+}
+
+.fake {
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+}
+
+
+a .log-btn{
+  position: absolute;
+  width: 100px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 16px;
+  font-family: sans-serif;
+  background: linear-gradient(90deg,  #1abc9c, rgb(35, 113, 62), rgb(30, 112, 79), rgb(39, 103, 57), rgb(16, 115, 98), rgb(93, 200, 200),rgb(38, 128, 88));
+  background-size: 400%;
+  border-radius: 30px;
+}
+
+a .log-btn:hover{
+  animation: animate 8s linear infinite;
+}
+
+@keyframes animate{
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 400%;
+  }
+}
+
+a .log-btn:before{
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  z-index: -1;
+  background: linear-gradient(45deg, #8cf6b5, #24ef9e, #4ecd96);
+  background-size: 400%;
+  border-radius: 40px;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+a .log-btn:hover:before{
+  filter: blur(20px);
+  opacity: 1;
+  animation: animate 8s linear infinite;
 }
