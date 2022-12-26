@@ -9,7 +9,10 @@
     <link rel="stylesheet" href="{% static 'main/css/index.css' %}">
 {% endblock %}
 
+{% block div-animation %}<div class="animation start-home"></div>{% endblock %}
+
 {% block content %}
+
     <main>
         <div>
             {% if user.is_authenticated %}

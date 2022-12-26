@@ -67,3 +67,31 @@ a:nth-child(4){
 a:nth-child(5){
   width: 120px;
 }
+
+.start-home, a:nth-child(1):hover~.animation{
+  width: 100px;
+  left: 0;
+  background-color: #1abc9c;
+}
+
+.start-bots, a:nth-child(2):hover~.animation{
+  width: 110px;
+  left: 100px;
+  background-color: #e74c3c;
+}
+
+.start-newbot, a:nth-child(3):hover~.animation{
+  width: 100px;
+  left: 210px;
+  background-color: #3498db;
+}
+.start-newcommand, a:nth-child(4):hover~.animation{
+  width: 160px;
+  left: 310px;
+  background-color: #9b59b6;
+}
+.start-about, a:nth-child(5):hover~.animation{
+  width: 120px;
+  left: 470px;
+  background-color: #e67e22;
+}

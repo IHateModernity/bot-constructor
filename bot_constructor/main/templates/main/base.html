@@ -15,11 +15,11 @@
   <header>
     <div>
       <a class="btn-home" href="{% url 'home' %}">Home</a>
-      <a class="btn-bots" href="{% url 'bots' %}">New bot</a>
-      <a class="btn-about" href="{% url 'home' %}">About</a>
-      <a class="btn-newbot" href="{% url 'create-new-bot' %}">New command</a>
-      <a class="btn-addcommand" href="{% url 'bot-add-command' %}">My bots</a>
-      <div class="animation start-home"></div>
+      <a class="btn-addcommand" href="{% url 'bots' %}">My bots</a>
+      <a class="btn-bots" href="{% url 'create-new-bot' %}">New bot</a>
+      <a class="btn-newbot" href="{% url 'bot-add-command' %}">New command</a>
+      <a class="btn-about" href="{% url 'home' %}">About us</a>
+      {% block div-animation %}{% endblock %}
     </div>
   </header>
 

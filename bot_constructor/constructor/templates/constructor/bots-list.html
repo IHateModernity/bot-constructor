@@ -1,13 +1,16 @@
 {% extends 'main/base.html' %}
 
-
 {% load static %}
 
+
 {% block title %} Home {% endblock %}
+
 
 {% block links %}
     <link rel="stylesheet" href="{% static 'main/css/index.css' %}">
 {% endblock %}
+
+{% block div-animation %}<div class="animation start-bots"></div>{% endblock %}
 
 {% block content %}
     <main>

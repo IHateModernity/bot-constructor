@@ -3,13 +3,16 @@
 
 {% load static %}
 
-{% block title %} Home {% endblock %}
+{% block title %} New bot {% endblock %}
 
 {% block links %}
-    <link rel="stylesheet" href="{% static 'constructor/css/new_bot.css' %}">
+
 {% endblock %}
 
+{% block div-animation %}<div class="animation start-newbot"></div>{% endblock %}
+
 {% block content %}
+
     <main>
     {{ user }}
     <h1>Create new bot</h1>
