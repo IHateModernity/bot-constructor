@@ -117,7 +117,7 @@ a .log-btn{
   color: #fff;
   font-size: 16px;
   font-family: sans-serif;
-  background: linear-gradient(90deg,  #1abc9c, rgb(35, 113, 62), rgb(30, 112, 79), rgb(39, 103, 57), rgb(16, 115, 98), rgb(93, 200, 200),rgb(38, 128, 88));
+  background: linear-gradient(90deg,  #1abc9c, rgb(35, 113, 62), rgb(30, 112, 79), rgb(39, 103, 57), rgb(16, 115, 98), rgb(93, 200, 200), rgb(38, 128, 88), #1abc9c);
   background-size: 400%;
   border-radius: 30px;
 }
