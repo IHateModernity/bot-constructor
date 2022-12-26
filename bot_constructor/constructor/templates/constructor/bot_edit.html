@@ -1,19 +1,16 @@
+{% extends 'main/base.html' %}
+
+
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
+{% block title %} Home {% endblock %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Bot edit page</title>
+{% block links %}
+    <link rel="stylesheet" href="{% static 'main/css/index.css' %}">
+{% endblock %}
 
-    <script src="{% static 'constructor/js/code.js' %}"></script>
-</head>
-
-
-
-
-<body>
+{% block content %}
+    <main>
     <h1>Bot page</h1>
     {% for command in commands %}
         <div style="height: 70px; width: 100%; display: flex; justify-content: space-around">
@@ -50,8 +47,5 @@
 
         </div>
     {% endfor %}
-</body>
-
-
-
-</html>
+    </main>
+{% endblock %}

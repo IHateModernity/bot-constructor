@@ -1,10 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'main/base.html' %}
+
+
+{% load static %}
+
+{% block title %} Home {% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'main/css/index.css' %}">
+{% endblock %}
+
+{% block content %}
+    <main>
     <h1>Add command page</h1>
     <a href="{% url 'home' %}">Home page</a>
     <br>
@@ -34,8 +40,5 @@
 
         <button type="submit" name="Submit">Submit</button>
     </form>
-
-    <br>
-
-</body>
-</html>
+    </main>
+{% endblock %}

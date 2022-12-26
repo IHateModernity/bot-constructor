@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}{% endblock %}</title>
+
+  <link rel="stylesheet" href="{% static 'main/css/base.css' %}">
+  {% block links %}
+  {% endblock %}
+
+</head>
+<body>
+  <header>
+    <div>
+      <a class="btn-home" href="{% url 'home' %}">Home</a>
+      <a class="btn-bots" href="{% url 'bots' %}">New bot</a>
+      <a class="btn-about" href="{% url 'home' %}">About</a>
+      <a class="btn-newbot" href="{% url 'create-new-bot' %}">New command</a>
+      <a class="btn-addcommand" href="{% url 'bot-add-command' %}">My bots</a>
+      <div class="animation start-home"></div>
+    </div>
+  </header>
+
+  {% block content %}
+  {% endblock %}
+</body>
+</html>
