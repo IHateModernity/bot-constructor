@@ -5,7 +5,7 @@
 
 body{
   font-family: sans-serif;
-  background: #2c3e50;
+  background: #2e2e3b;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -20,16 +20,16 @@ header {
     width: 100%
 }
 
-div{
+.header{
   position: relative;
   width: 590px;
   height: 50px;
-  background-color: #34495e;
+  background-color: #464454;
   border-radius: 8px;
   font-size: 0;
 }
 
-a{
+.header-button{
   line-height: 50px;
   height: 100%;
   font-size: 15px;
@@ -52,50 +52,52 @@ a{
   border-radius: 8px;
 }
 
-a:nth-child(1){
+.header-button:nth-child(1){
   width: 100px;
 }
-a:nth-child(2){
+.header-button:nth-child(2){
   width: 110px;
 }
-a:nth-child(3){
+.header-button:nth-child(3){
   width: 100px;
 }
-a:nth-child(4){
+.header-button:nth-child(4){
   width: 160px;
 }
-a:nth-child(5){
+.header-button:nth-child(5){
   width: 120px;
 }
 
-.start-home, a:nth-child(1):hover~.animation{
+
+
+.start-home, .header-button:nth-child(1):hover~.animation{
   width: 100px;
   left: 0;
-  background-color: #1abc9c;
+  background-color: #70617a/* #1abc9c;*/
 }
 
-.start-bots, a:nth-child(2):hover~.animation{
+.start-bots, .header-button:nth-child(2):hover~.animation{
   width: 110px;
   left: 100px;
-  background-color: #e74c3c;
+  background-color: #a488ac /*#e74c3c;*/
 }
 
-.start-newbot, a:nth-child(3):hover~.animation{
+.start-newbot, .header-button:nth-child(3):hover~.animation{
   width: 100px;
   left: 210px;
-  background-color: #3498db;
+  background-color:#e8bfe6/* #3498db;*/
 }
 
-.start-newcommand, a:nth-child(4):hover~.animation{
+.start-newcommand, .header-button:nth-child(4):hover~.animation{
   width: 160px;
   left: 310px;
-  background-color: #9b59b6;
+  background-color: #a488ac /* #9b59b6; */
 }
 
-.start-about, a:nth-child(5):hover~.animation{
+.start-about, .header-button:nth-child(5):hover~.animation{
   width: 120px;
   left: 470px;
-  background-color: #e67e22;
+  background-color: #70617a /* #e67e22;*/
 }
 
 .fake {
@@ -103,11 +105,11 @@ a:nth-child(5){
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 10px;
+  margin-bottom: 40px;
 }
 
 
-a .log-btn{
+.log-btn{
   position: absolute;
   width: 100px;
   height: 40px;
@@ -117,12 +119,12 @@ a .log-btn{
   color: #fff;
   font-size: 16px;
   font-family: sans-serif;
-  background: linear-gradient(90deg,  #1abc9c, rgb(35, 113, 62), rgb(30, 112, 79), rgb(39, 103, 57), rgb(16, 115, 98), rgb(93, 200, 200), rgb(38, 128, 88), #1abc9c);
+  background: linear-gradient(90deg,  #2e2e3b, #464454, #70617a, #a488ac, #e8bfe6, #e8bfe6, #a488ac, #70617a, #464454, #2e2e3b);
   background-size: 400%;
   border-radius: 30px;
 }
 
-a .log-btn:hover{
+.log-btn:hover{
   animation: animate 8s linear infinite;
 }
 
@@ -135,7 +137,7 @@ a .log-btn:hover{
   }
 }
 
-a .log-btn:before{
+.log-btn:before{
   content: "";
   position: absolute;
   top: -5px;
@@ -143,15 +145,24 @@ a .log-btn:before{
   right: -5px;
   bottom: -5px;
   z-index: -1;
-  background: linear-gradient(45deg, #8cf6b5, #24ef9e, #4ecd96);
+  background: linear-gradient(45deg, #2e2e3b, #464454, #70617a, #a488ac, #e8bfe6, #e8bfe6, #a488ac, #70617a, #464454, #2e2e3b);
+  /* background: linear-gradient(45deg, #8cf6b5, #24ef9e, #4ecd96); */
   background-size: 400%;
   border-radius: 40px;
   opacity: 0;
   transition: 0.5s;
 }
 
-a .log-btn:hover:before{
+.log-btn:hover:before{
   filter: blur(20px);
   opacity: 1;
   animation: animate 8s linear infinite;
 }
+
+/* #2e2e3b, #464454, #70617a, #a488ac, #e8bfe6, #e8bfe6, #a488ac, #70617a, #464454, #2e2e3b */
+
+.color1 {color: #2e2e3b;} 
+.color2 {color: #464454;}
+.color3 {color: #70617a;}
+.color4 {color: #a488ac;}
+.color5 {color: #e8bfe6;}

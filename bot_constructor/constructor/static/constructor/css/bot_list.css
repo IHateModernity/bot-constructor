@@ -1,0 +1,151 @@
+.noss {
+  height: 100%;
+  padding-top: 7px;
+  text-align: center;
+}
+
+
+.tasks-list {
+  padding: 20px;
+  height: auto;
+  margin-bottom: 100px;
+  margin-left: 100px;
+  margin-right: 100px;
+  width: 800px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.overtask {
+  width: 100%;
+}
+
+.task {
+  width: 100%;
+  height: 120px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.status-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  height: 80%;
+  /* background-color: #1098ad; */
+}
+
+.task-content {
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+  /* background-color: #a166ab; */
+}
+
+.buttons {
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 30px;
+  /* background-color:#ef4e7b; */
+}
+
+.edit-btn {width: 50px}
+
+.create-script-btn {width: 100px}
+
+.script-btn {width: 75px}
+
+.bot-btn {
+  height: 30px;
+  text-decoration: none;
+  color: #2e2e3b;
+  font-weight: 600;
+  text-align: center;
+  padding: 5px;
+}
+
+p {
+  width: 100%;
+  text-align: center;
+}
+
+.add {
+  width: 300px;
+  padding-bottom: 5px;
+}
+
+.tasks-header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 20px;
+}
+
+.create {
+  background-color: rgb(118, 118, 118);
+  color: rgb(255, 196, 0);
+  border-radius: 3px;
+  padding: 7px 13px;
+}
+
+.title {
+  margin-top: 100px;
+  width: 600px;
+  text-align: center;
+  text-shadow: rgb(186, 186, 185) 1px 0 10px;
+}
+
+#box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  height: 200px;
+  color: white;
+  font-family: "Raleway";
+  font-size: 2.5rem;
+}
+.gradient-border {
+  --borderWidth: 3px;
+  background: #e2e0e0;
+  position: relative;
+  border-radius: var(--borderWidth);
+}
+.gradient-border:after {
+  content: "";
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(
+    60deg,
+    #2e2e3b, #464454, #70617a, #a488ac, #e8bfe6, #e8bfe6, #a488ac, #70617a, #464454, #2e2e3b
+  );
+  /* background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82); */
+  border-radius: calc(2 * var(--borderWidth));
+  z-index: -1;
+  animation: animatedgradient 3s ease alternate infinite;
+  background-size: 300% 300%;
+}
+
+@keyframes animatedgradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+
+
