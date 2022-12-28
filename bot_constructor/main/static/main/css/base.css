@@ -24,7 +24,7 @@ header {
   position: relative;
   width: 590px;
   height: 50px;
-  background-color: #464454;
+  background-color: #70617a;
   border-radius: 8px;
   font-size: 0;
 }
@@ -39,7 +39,7 @@ header {
   text-decoration: none;
   text-transform: uppercase;
   text-align: center;
-  color: white;
+  color: #000000;
   cursor: pointer;
 }
 
@@ -73,13 +73,13 @@ header {
 .start-home, .header-button:nth-child(1):hover~.animation{
   width: 100px;
   left: 0;
-  background-color: #70617a/* #1abc9c;*/
+  background-color: #e8bfe6/* #1abc9c;*/
 }
 
 .start-bots, .header-button:nth-child(2):hover~.animation{
   width: 110px;
   left: 100px;
-  background-color: #a488ac /*#e74c3c;*/
+  background-color: #e8bfe6 /*#e74c3c;*/
 }
 
 .start-newbot, .header-button:nth-child(3):hover~.animation{
@@ -91,13 +91,13 @@ header {
 .start-newcommand, .header-button:nth-child(4):hover~.animation{
   width: 160px;
   left: 310px;
-  background-color: #a488ac /* #9b59b6; */
+  background-color: #e8bfe6 /* #9b59b6; */
 }
 
 .start-about, .header-button:nth-child(5):hover~.animation{
   width: 120px;
   left: 470px;
-  background-color: #70617a /* #e67e22;*/
+  background-color: #e8bfe6 /* #e67e22;*/
 }
 
 .fake {

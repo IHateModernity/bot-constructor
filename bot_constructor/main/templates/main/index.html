@@ -12,14 +12,29 @@
 {% block div-animation %}<div class="animation start-home"></div>{% endblock %}
 
 {% block content %}
-
     <main>
+
+
+
         <div>
-            {% if user.is_authenticated %}
-            {{ user }}
+            {% if request.user.is_authenticated %}
+                  <div class="title"><h1>Welcome, {{user}}!</h1></div>
+<!--                  <div class="buttons">-->
+<!--                     <div class="title"><h1></h1></div>-->
+<!--                  </div>-->
+                  <div class="wrap">
+                    <button class="button create-btn">Create new bot</button>
+                  </div>
+            {% else %}
+                  <div class="title"><h1>Welcome!</h1></div>
+
+                  <div class="buttons">
+                    <a id="register" href="{% url 'authentication' %}" class="btn" onclick="registerForm()">Register</a>
+                  </div>
 
             {% endif %}
-          <h1>Main Page</h1>
+
+
 
         </div>
 

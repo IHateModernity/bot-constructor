@@ -71,6 +71,7 @@
 p {
   width: 100%;
   text-align: center;
+  color: #e8bfe6
 }
 
 .add {
@@ -112,7 +113,7 @@ p {
 }
 .gradient-border {
   --borderWidth: 3px;
-  background: #e2e0e0;
+  background: #4d4354;
   position: relative;
   border-radius: var(--borderWidth);
 }
