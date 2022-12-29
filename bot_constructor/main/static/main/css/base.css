@@ -22,11 +22,12 @@ header {
 
 .header{
   position: relative;
-  width: 590px;
+  min-width: 590px;
   height: 50px;
   background-color: #70617a;
   border-radius: 8px;
   font-size: 0;
+  
 }
 
 .header-button{
