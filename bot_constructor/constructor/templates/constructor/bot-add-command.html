@@ -7,6 +7,7 @@
 
 {% block links %}
     <link rel="stylesheet" href="{% static 'constructor/css/add_command.css' %}">
+    <script src="{% static 'constructor/js/add_command.js' %}"></script>
 {% endblock %}
 
 {% block div-animation %}<div class="animation start-newcommand"></div>{% endblock %}
@@ -14,21 +15,93 @@
 {% block content %}
     <main>
         <h1>Add command page</h1>
-        <a href="{% url 'home' %}">Home page</a>
-
-        <a href="{% url 'bots' %}">Bots</a>
-
-        <form method="post" name="">
+        <div class="command-form">
+          <form method="post" id="app">
             {% csrf_token %}
 
+            <div id="select-box">
+              <input type="checkbox" class="input-view" name="bot_name" id="id_bot_name"> 
+                
+              <div id="select" class="brd">
 
-            <select type="text" name="bot_name" id="id_bot_name">
-                {% for bot in bots %}
-                    <option>{{ bot.bot_username }}</option>
-                {% empty %}
-                    <option>Select a bot</option>
-                {% endfor %}
-            </select>
+                <div id="value">
+                  <span class="span-bot">Select a bot</span>
+                </div>
+
+                <div id="chevrons">
+                  <i class="fas fa-chevron-up"></i>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+
+              </div>
+
+              <div type="select" id="options">
+                    {% for bot in bots %}
+                      <div class="option" onclick="show('{{ bot.bot_username }}')">
+                          <input class="s top" type="radio">
+                          <input class="s bottom" type="radio" >
+                          
+                          <i>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                                  <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+                              </svg>
+                          </i>
+      
+                          <span class="label" >{{ bot.bot_username }}</span>
+                        </div>
+                    {% endfor %}
+                    
+                    <div id="option-bg"></div>
+              </div>
+          
+            </div>
+
+
+            <div id="select-box">
+              <input type="checkbox" class="input-view" name="bot_name" id="id_bot_name"> 
+                
+              <div id="select" class="brd">
+
+                <div id="value">
+                  <span class="span-bot">Select a bot</span>
+                </div>
+
+                <div id="chevrons">
+                  <i class="fas fa-chevron-up"></i>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+
+              </div>
+
+              <div type="select" id="options">
+                    <div class="option" onclick="show('command')">
+                        <input class="s top" type="radio">
+                        <input class="s bottom" type="radio" >
+                        
+                        <i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+                            </svg>
+                        </i>
+    
+                        <span class="label">command</span>
+                    </div>
+                    <div class="option" onclick="show('message')">
+                      <input class="s top" type="radio">
+                      <input class="s bottom" type="radio" >
+                      
+                      <i>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                              <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+                          </svg>
+                      </i>
+  
+                      <span class="label" >message</span>
+                  </div>
+                    <div id="option-bg"></div>
+              </div>
+          
+            </div>
 
             <select type="text" name="type" id="id_type" >
                 <option>command</option>
@@ -39,41 +112,9 @@
             <textarea type="text" name="answer" maxlength="255" required="" id="id_answer">Bot's answer</textarea>
 
             <button type="submit" name="Submit">Submit</button>
-        </form>
-
-        <form method="post" id="app">
-            {% csrf_token %}
-
-            <div id="select-box">
-              <input type="checkbox" id="view">
-              <div id="select" class="brd">
-                <div id="value">
-                  <span>Select a bot</span>
-                </div>
-                <div id="chevrons">
-                  <i class="fas fa-chevron-up"></i>
-                  <i class="fas fa-chevron-down"></i>
-                </div>
-              </div>
-              <div type="select" id="options">
-                  {% for bot in bots %}
-                      <div class="option" >
-                          <!-- <input class="s top" type="radio">
-                          <input class="s bottom" type="radio" > -->
-                          
-                          <i>
-                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
-                                  <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
-                              </svg>
-                          </i>
-      
-                          <span class="label" name="bot_name" id="id_bot_name">{{ bot.bot_username }}</span>
-                </div>
-                    {% endfor %}
-                <div id="option-bg"></div>
-              </div>
-            </div>
           </form>
+        </div>
+        
 
           <script src="https://kit.fontawesome.com/95a02bd20d.js"></script>
     </main>
