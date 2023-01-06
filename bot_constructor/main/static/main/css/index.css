@@ -1,7 +1,13 @@
+body {
+    overflow-y: hidden;
+}
+
 main {
     display: flex;
-    flex-wrap: wrap
+    flex-wrap: wrap;
+    margin-bottom: 100px;
 }
+
 
 .title {
     width: 100%;
@@ -24,7 +30,7 @@ h1 {
     display: flex;
     align-items: flex-start;
     justify-content: center;
-  }
+}
   
 .button {
 min-width: 300px;
