@@ -138,6 +138,7 @@ class BotAddCommand(LoginRequiredMixin, View):
             return redirect('bots')
 
         else:
+            print('error\n'*10)
             context = {'form': form,
                        'errors': form.errors}
             return render(request, self.template_name, context)

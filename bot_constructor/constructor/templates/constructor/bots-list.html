@@ -15,36 +15,36 @@
 
 {% block content %}
     <main>
-    <div class="tasks-list gradient-border">
-                {% for bot in bots %}
-                    <div class="overtask">
-                        <div class="task">
+        <div class="tasks-list gradient-border">
+                    {% for bot in bots %}
+                        <div class="overtask">
+                            <div class="task">
 
-                              <div class="task-content">
-                                  <p><strong>{{bot.bot_username}}</strong></p>
-                                  <p>{{ bot.user }}</p>
-                              </div>
-                              <div class="buttons">
-                                  <td><a href="{% url 'bot-edit-page' pk=bot.bot_username %}"><button class="bot-btn edit-btn" type="button">Edit</button></a></td>
-                                  <td>
-                                        <form method="post">
-                                            {% csrf_token %}
-                                            <button class="bot-btn create-script-btn" type="submit" name="{{ bot.bot_username }} {{ bot.bot_token }}">Create script</button>
-                                        </form>
-                                  </td>
-                                  <td>
-                                      {% if bot.has_script %}
-                                          <a href="{% get_media_prefix %}{{ bot.script_path }}" download><button class="bot-btn script-btn">Download</button></a>
-                                      {% else %}
-                                          <a><div class="noss script-btn"><p>No script</p></div></a>
-                                      {% endif %}
-                                  </td>
-                              </div>
-                    </div>
-                    {% empty %}
-                        <h2>Nothing is here...</h2>
-                    {% endfor %}
+                                <div class="task-content">
+                                    <p><strong>{{bot.bot_username}}</strong></p>
+                                    <p>{{ bot.user }}</p>
+                                </div>
+                                <div class="buttons">
+                                    <td><a href="{% url 'bot-edit-page' pk=bot.bot_username %}"><button class="bot-btn edit-btn" type="button">Edit</button></a></td>
+                                    <td>
+                                            <form method="post">
+                                                {% csrf_token %}
+                                                <button class="bot-btn create-script-btn" type="submit" name="{{ bot.bot_username }} {{ bot.bot_token }}">Create script</button>
+                                            </form>
+                                    </td>
+                                    <td>
+                                        {% if bot.has_script %}
+                                            <a href="{% get_media_prefix %}{{ bot.script_path }}" download><button class="bot-btn script-btn">Download</button></a>
+                                        {% else %}
+                                            <a><div class="noss script-btn"><p>No script</p></div></a>
+                                        {% endif %}
+                                    </td>
+                                </div>
+                        </div>
+                        {% empty %}
+                            <h2>Nothing is here...</h2>
+                        {% endfor %}
+            </div>
         </div>
-    </div>
     </main>
 {% endblock %}

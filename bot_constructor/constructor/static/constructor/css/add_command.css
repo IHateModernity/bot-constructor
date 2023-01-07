@@ -1,5 +1,59 @@
+.default {
+	color:  rgba(0, 0, 0, 0.645);
+
+}
+
+
+
+
+select, input, textarea {
+  color: rgb(0, 0, 0);
+  padding: 12px;
+  width: auto;
+  border: none;
+  font-size: 16.5px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+}
+
+
+#id_answer {
+	width: 300px;
+	height: 50px;
+}
+
+.sub {
+	width: 150px;
+	height: 50px;
+	cursor: pointer;
+	border: none;
+	color: rgba(255,255,255,0.5);
+	font-size: 20px;
+	border-radius: 4px;
+	box-shadow: inset 0px 3px 5px rgba(255,255,255,0.5), 0px 0px 10px rgba(0,0,0,0.15);
+	background: rgb(2,0,36);
+	background: linear-gradient(45deg, rgba(2,0,36,0) 5%, rgba(255,255,255,.5) 6%, rgba(255,255,255,0) 9%, rgba(255,255,255,.5) 10%, rgba(255,255,255,0) 17%, rgba(255,255,255,.5) 19%, rgba(255,255,255,0) 21%);
+	background-size: 150%;
+	background-position: right;
+	transition: 1s;
+}
+
+.sub:hover {
+	background-position: left;
+	color: white;
+	box-shadow: inset 0px 3px 5px rgba(255,255,255,1), 0px 0px 10px rgba(0,0,0,0.25);
+}
+
+.sub:focus {
+	outline: none;
+}
+
+
+
 .command-form {
-	width: 100%;
+	width: 1000px;
 	height: 100%;
 	display: flex;
 	justify-content: center;
@@ -9,278 +63,159 @@
 main {
 	width: 100%;
 	height: 100%;
-}
-
-
-
-.brd{
-	border: 1px solid #e2eded;
-	border-color: #eaf1f1 #e4eded #dbe7e7 #e4eded;
-}
-#app{
-	position: absolute;
-	top: 0;
-	right: 0;
-	left: 0;
-	width: 300px;
-	height: 42px;
-	margin: 100px auto 0 auto;
-	z-index: 1;
-}
-
-#select{
-	position: relative;
-	height: 16px;
-	padding: 12px 14px;
-	background-color: #fff;
-	border-radius: 4px;
-	cursor: pointer;
-}
-.input-view{
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	opacity: 0;
-	cursor: pointer;
-	color: black;
-	z-index: 3;
-}
-#value{
-	font-size: 16px;
-	line-height: 1;
-	margin-right: 26px;
-}
-.option i{
-	width: 16px;
-	height: 16px;
-}
-.option,
-.label{
-	color: #2d3667;
-	font-size: 16px;
-}
-#chevrons{
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	width: 12px;
-	padding: 9px 14px;
-}
-#chevrons i{
-	display: block;
-	height: 50%;
-	color: #d1dede;
-	font-size: 12px;
-	text-align: right;
-}
-.input-view:checked + #select-button #chevrons i{
-	color: #2d3667;
-}
-.options{
-	position: absolute;
-	left: 0;
-	width: 250px;
-}
-#options{
-	position: absolute;
-	top: 42px;
-	right: 0;
-	left: 0;
-	width: 298px;
-	margin: 0 auto;
-	background-color: #fff;
-	border-radius: 4px;
-}
-.input-view:checked ~ #options{
-	border: 1px solid #e2eded;
-	border-color: #eaf1f1 #e4eded #dbe7e7 #e4eded;
-}
-.option{
-	position: relative;
-	line-height: 1;
-	transition: 0.3s ease all;
-	z-index: 2;
-}
-.option i{
-	position: absolute;
-	left: 14px;
-	display: none;
-}
-.input-view:checked ~ #options .option i{
-	display: block;
-	padding: 12px 0;
-}
-.label{
-	display: none;
-	margin-left: 27px;
-}
-.input-view:checked ~ #options .label{
-	display: block;
-	padding: 12px 14px;
-}
-.s{
-	position: absolute;
-	left: 0;
-	width: 100%;
-	height: 50%;
-}
-.s.top{
-	top: 0;
-}
-.s.bottom{
-	bottom: 0;
-}
-input[type="radio"]{
-	position: absolute;
-	right: 0;
-	left: 0;
-	width: 100%;
-	height: 50%;
-	margin: 0;
-	opacity: 0;
-	cursor: pointer;
-}
-.s:hover ~ i{
-	/* color: #fff; */
-	color: black;
-	opacity: 0;
-}
-.s:hover{
-	height: 100%;
-	z-index: 1;
-}
-.s.bottom:hover + i{
-	bottom: -25px;
-	animation: moveup 0.3s ease 0.1s forwards;
-}
-.s.top:hover ~ i{
-	top: -25px;
-	animation: movedown 0.3s ease 0.1s forwards;
-}
-@keyframes moveup{
-	0%{
-		bottom: -25px;
-		opacity: 0;
-	}
-	100%{
-		bottom: 0;
-		opacity: 1;
-	}
-}
-@keyframes movedown{
-	0%{
-		top: -25px;
-		opacity: 0;
-	}
-	100%{
-		top: 0;
-		opacity: 1;
-	}
-}
-.label{
-	transition: 0.3s ease all;
-}
-.option input[type="radio"]:checked ~ i{
-	top: 0;
-	bottom: auto;
-	opacity: 1;
-	animation: unset;
-}
-.option input[type="radio"]:checked ~ i,
-.option input[type="radio"]:checked ~ .label{
-	/* color: #fff; */
-	color: black;
-}
-.option input[type="radio"]:checked ~ .label:before{
-	content: "";
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	z-index: -1;
-}
-.option .fa-codepen{
-	color: rgb(205, 212, 0);
-}
-.option .fa-dribbble{
-	color: #ea4c89;
-}
-.option .fa-behance {
-	color: #0057ff;
-}
-.option .fa-hackerrank{
-	color: #32c766;
-}
-.option .fa-stack-overflow{
-	color: #f48024;
-}
-.option .fa-free-code-camp{
-	color: #006400;
-}
-#option-bg{
-	position: absolute;
-	top: 0;
-	right: 0;
-	left: 0;
-	height: 40px;
-	transition: 0.3s ease all;
-	z-index: 1;
-	display: none;
-}
-.input-view:checked ~ #options #option-bg{
-	display: block;
-}
-.option:hover .label{
-	/* color: #fff; */
-	color: black;
-}
-.option:nth-child(1):hover ~ #option-bg{
-	top: 0;
-	background-color: rgb(205, 212, 0);
-	border-radius: 4px 4px 0 0;
-	box-shadow: 0 0 10px rgb(205, 212, 0),
-	0 0 20px rgb(205, 212, 0);
-}
-.option:nth-child(2):hover ~ #option-bg{
-	top: 40px;
-	background-color: #ea4c89;
-	box-shadow: 0 0 10px #ea4c89,
-				0 0 20px #ea4c89;
-}
-.option:nth-child(3):hover ~ #option-bg{
-	top: 80px;
-	background-color: #0057ff;
-	box-shadow: 0 0 10px #0057ff,
-	0 0 20px #0057ff;
-}
-.option:nth-child(4):hover ~ #option-bg{
-	top: 120px;
-	background-color: #32c766;
-	box-shadow: 0 0 10px #32c766,
-	0 0 20px #32c766;
-}
-.option:nth-child(5):hover ~ #option-bg{
-	top: 160px;
-	background-color: #f48024;
-	box-shadow: 0 0 10px #f48024,
-	0 0 20px #f48024;
-}
-.option:nth-child(6):hover ~ #option-bg{
-	top: 200px;
-	background-color: #006400;
-	border-radius: 0 0 4px 4px;
-	box-shadow: 0 0 10px #006400,
-	0 0 20px #006400;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 form {
-	background-color: #ea4c89;
-	position: absolute;
-	margin-top: 100px;
+	width: 97%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	
+
 }
+
+.tasks-list {
+	padding: 20px;
+	height: auto;
+	margin-bottom: 100px;
+	margin-left: 100px;
+	margin-right: 100px;
+	width: 1100px;
+	border-radius: 10px;
+	display: flex;
+	justify-content: center;
+}
+
+.overtask {
+width: 100%;
+}
+
+.task {
+width: 100%;
+height: 120px;
+display: flex;
+justify-content: space-around;
+align-items: center;
+}
+
+.status-icon {
+display: flex;
+justify-content: center;
+align-items: center;
+width: 20%;
+height: 80%;
+/* background-color: #1098ad; */
+}
+
+.task-content {
+display: flex;
+justify-content: space-around;
+width: 50%;
+/* background-color: #a166ab; */
+}
+
+.buttons {
+width: 30%;
+display: flex;
+justify-content: space-between;
+padding-left: 30px;
+/* background-color:#ef4e7b; */
+}
+
+.edit-btn {width: 50px}
+
+.create-script-btn {width: 100px}
+
+.script-btn {width: 75px}
+
+.bot-btn {
+height: 30px;
+text-decoration: none;
+color: #2e2e3b;
+font-weight: 600;
+text-align: center;
+padding: 5px;
+}
+
+p {
+width: 100%;
+text-align: center;
+color: #e8bfe6
+}
+
+.add {
+width: 300px;
+padding-bottom: 5px;
+}
+
+.tasks-header {
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: flex-end;
+padding: 20px;
+}
+
+.create {
+background-color: rgb(118, 118, 118);
+color: rgb(255, 196, 0);
+border-radius: 3px;
+padding: 7px 13px;
+}
+
+.title {
+margin-top: 100px;
+width: 600px;
+text-align: center;
+text-shadow: rgb(186, 186, 185) 1px 0 10px;
+}
+
+#box {
+display: flex;
+align-items: center;
+justify-content: center;
+width: 400px;
+height: 200px;
+color: white;
+font-family: "Raleway";
+font-size: 2.5rem;
+}
+.gradient-border {
+--borderWidth: 3px;
+background: #4d4354;
+position: relative;
+border-radius: var(--borderWidth);
+}
+.gradient-border:after {
+content: "";
+position: absolute;
+top: calc(-1 * var(--borderWidth));
+left: calc(-1 * var(--borderWidth));
+height: calc(100% + var(--borderWidth) * 2);
+width: calc(100% + var(--borderWidth) * 2);
+background: linear-gradient(
+	60deg,
+	#2e2e3b, #464454, #70617a, #a488ac, #e8bfe6, #e8bfe6, #a488ac, #70617a, #464454, #2e2e3b
+);
+/* background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82); */
+border-radius: calc(2 * var(--borderWidth));
+z-index: -1;
+animation: animatedgradient 3s ease alternate infinite;
+background-size: 300% 300%;
+}
+
+@keyframes animatedgradient {
+0% {
+	background-position: 0% 50%;
+}
+50% {
+	background-position: 100% 50%;
+}
+100% {
+	background-position: 0% 50%;
+}
+}
+
