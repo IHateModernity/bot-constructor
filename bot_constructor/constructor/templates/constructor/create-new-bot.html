@@ -6,7 +6,7 @@
 {% block title %} New bot {% endblock %}
 
 {% block links %}
-
+<link rel="stylesheet" href="{% static 'constructor/css/add_command.css' %}">
 {% endblock %}
 
 {% block div-animation %}<div class="animation start-newbot"></div>{% endblock %}
@@ -14,18 +14,21 @@
 {% block content %}
 
     <main>
-    {{ user }}
-    <h1>Create new bot</h1>
-    <a href="{% url 'home' %}">Home page</a>
-    <br>
-    <br>
-    <a href="{% url 'bots' %}">Bots</a>
-    <br>
-    <br>
-    <form method="post">
-        {% csrf_token %}
-        {{ form }}
-        <button type="submit" name="Submit">Submit</button>
-    </form>
+
+    
+    <div class="tasks-list gradient-border">
+        <div class="overtask">
+            <div class="task">
+
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="text" name="bot_username" maxlength="30" required="" id="id_bot_username" placeholder="Bot's username">
+                    <input type="text" name="bot_token" maxlength="50" required="" id="id_bot_token" placeholder="Token">
+                    <button class="sub" type="submit" name="Submit">Submit</button>
+                </form>
+
+            </div>
+        </div>
+  </div>
     </main>
 {% endblock %}
