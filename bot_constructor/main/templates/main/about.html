@@ -6,11 +6,62 @@
 {% block title %} About {% endblock %}
 
 {% block links %}
-
+    <link rel="stylesheet" href="{% static 'main/css/about.css' %}">
 {% endblock %}
 
 {% block div-animation %}<div class="animation start-about"></div>{% endblock %}
 
 {% block content %}
-
+<div class="container">
+    <div class="card">
+      <div class="face face1">
+        <div class="content">
+            <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+               <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+            </svg>
+          <h3>Mark Semikhov</h3>
+        </div>
+      </div>
+      <div class="face face2">
+        <div class="content">
+          <p class="parag">Team lead<br> Bugfix registration system<br> Frontend developer </p>
+          <a class="lin" href="https://github.com/IHateModernity" type="button">Github</a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="face face1">
+        <div class="content">
+            <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+            </svg>
+          <h3>Mark Reshetov
+        </h3>
+        </div>
+      </div>
+      <div class="face face2">
+        <div class="content">
+          <p class="parag">Developer of bot-script system.</p>
+          <a class="lin" href="https://github.com/Mark-Reshetov" type="button">Github</a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="face face1">
+        <div class="content">
+            <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+            </svg>
+          <h3>TimAny</h3>
+        </div>
+      </div>
+      <div class="face face2">
+        <div class="content">
+          <p class="parag">Developer of registration system.</p>
+          <a class="lin" href="https://github.com/TimAny-W" type="button">Github</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://kit.fontawesome.com/95a02bd20d.js"></script>
 {% endblock %}
