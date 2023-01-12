@@ -3,7 +3,9 @@
 
 }
 
-
+textarea {
+  resize: none;
+}
 
 
 select, input, textarea {

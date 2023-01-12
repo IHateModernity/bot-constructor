@@ -22,7 +22,7 @@
 
                                 <div class="task-content">
                                     <p><strong>{{bot.bot_username}}</strong></p>
-                                    <p>{{ bot.user }}</p>
+                                    <p>Creator: <strong>{{ bot.user }}</strong> </p>
                                 </div>
                                 <div class="buttons">
                                     <td><a href="{% url 'bot-edit-page' pk=bot.bot_username %}"><button class="bot-btn edit-btn" type="button">Edit</button></a></td>

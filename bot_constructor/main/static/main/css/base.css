@@ -1,3 +1,19 @@
+.nickname {
+  width: 100px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 16px;
+  font-family: sans-serif;
+  background: linear-gradient(90deg,  #464454, #70617a, #a488ac, #e8bfe6, #e8bfe6, #a488ac, #70617a, #464454);
+  background-size: 400%;
+  border-radius: 30px;
+  border-style:none;
+}
+
+
 * {
     margin: 0;
     padding: 0;
@@ -40,7 +56,7 @@ header {
   text-decoration: none;
   text-transform: uppercase;
   text-align: center;
-  color: #000000;
+  color: #f1f1f1;
   cursor: pointer;
 }
 
@@ -138,16 +154,16 @@ header {
 .start-about, .header-button:nth-child(5):hover~.animation{
   width: 120px;
   left: 470px;
-  background-color: #e8bfe6;
+  background-color: #70617a;
   transform: translateY(0);
   box-shadow:
   inset 0 0 60px whitesmoke,
-  inset 20px 0 80px #f0f,
+  inset 20px 0 80px rgb(188, 2, 188),
   inset -20px 0 80px rgb(140, 140, 140),
-  inset 20px 0 300px #f0f,
+  inset 20px 0 300px #70617a,
   inset -20px 0 300px rgb(140, 140, 140),
   0 0 50px #fff,
-  -10px 0 80px #f0f,
+  -10px 0 80px rgb(188, 2, 188),
   10px 0 80px rgb(140, 140, 140); 
 }
 
@@ -157,12 +173,13 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 40px;
 }
 
+a{
+  text-decoration: none;
+}
 
 .log-btn{
-  position: absolute;
   width: 100px;
   height: 40px;
   display: flex;
@@ -171,9 +188,10 @@ header {
   color: #fff;
   font-size: 16px;
   font-family: sans-serif;
-  background: linear-gradient(90deg,  #2e2e3b, #464454, #70617a, #a488ac, #e8bfe6, #e8bfe6, #a488ac, #70617a, #464454, #2e2e3b);
+  background: linear-gradient(90deg,  #464454, #70617a, #a488ac, #e8bfe6, #e8bfe6, #a488ac, #70617a, #464454);
   background-size: 400%;
   border-radius: 30px;
+  border-style:none;
 }
 
 .log-btn:hover{
@@ -185,13 +203,13 @@ header {
     background-position: 0%;
   }
   100% {
-    background-position: 400%;
+    background-position: 420%;
   }
 }
 
 .log-btn:before{
+  outline: none;
   content: "";
-  position: absolute;
   top: -5px;
   left: -5px;
   right: -5px;
