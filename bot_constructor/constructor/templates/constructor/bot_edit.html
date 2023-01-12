@@ -3,51 +3,48 @@
 
 {% load static %}
 
-{% block title %} Home {% endblock %}
+
+{% block title %}{{bot}}{% endblock %}
+
 
 {% block links %}
-    <link rel="stylesheet" href="{% static 'main/css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'constructor/css/add_command.css' %}">
+    <link rel="stylesheet" href="{% static 'constructor/css/bot_edit.css' %}">
 {% endblock %}
+
 
 {% block div-animation %}<div class="animation start-bots"></div>{% endblock %}
 
+
 {% block content %}
     <main>
-    <h1>Bot page</h1>
-    {% for command in commands %}
-        <div style="height: 70px; width: 100%; display: flex; justify-content: space-around">
-            <span>
-                <p style="display: inline">Command:</p>
-                <h3 style="display: inline">{{ command.message }}</h3>
-            </span>
+        <div class="tasks-list gradient-border">
+            <div class="overtask">
+                <div class="task">
+                    {% for command in commands %}
+                        <div class="bot-info">
+                            <span class="info">
+                                <span>
+                                    <p>Command:</p>
+                                    <h3>{{ command.message }}</h3>
+                                </span>
+                                <span>
+                                    <p>Answer:</p>
+                                    <h3>{{ command.answer }}</h3>
+                                </span>
+                                
+                            </span>
 
-            <span>
-                <p style="display: inline">Answer:</p>
-                <h3 style="display: inline">{{ command.answer }}</h3>
-            </span>
-
-            <span>
-            <form action="{% url 'command-delete-page' command.id %}" method="post">{% csrf_token %}
-                <p style="display: inline">Delete "{{ command }}"?</p>
-                {{ form }}
-                <input type="submit" value="Confirm">
-            </form>
-            </span>
-
-            <span>
-                <p style="display: inline">Edit command:</p>
-
-                <button class="button open-button">Edit</button>
-
-                <div class="popup" id="popup-1">
-                    <h3>Dialog window</h3>
-                    <button class="button close-button">Close</button>
+                            <span>
+                                <form action="{% url 'command-delete-page' command.id %}" method="post">{% csrf_token %}
+                                    {{ form }}
+                                    <input class="sub" type="submit" value="Delete">
+                                </form>
+                            </span>
+                        </div>
+                    {% endfor %}
                 </div>
-
-            </span>
-
-
+            </div>
         </div>
-    {% endfor %}
     </main>
 {% endblock %}

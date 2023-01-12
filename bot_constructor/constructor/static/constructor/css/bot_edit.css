@@ -1,0 +1,46 @@
+.bot-info {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    background-color:beige;
+}
+
+h3 {
+    color:beige
+}
+
+
+.task {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+p {
+    display: inline;
+}
+
+h3 {
+    display: inline;
+}
+
+.info {
+    margin-right: 20px;
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+}
+
+main {
+    width: 1000px;
+
+}

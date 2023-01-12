@@ -156,7 +156,8 @@ class BotCommandList(LoginRequiredMixin, DetailView):
         return render(request,
                       self.template_name,
                       context={
-                          "commands": Command.objects.all().filter(bot_name=pk)
+                          "commands": Command.objects.all().filter(bot_name=pk),
+                          'bot': pk
                       }
                       )
 
