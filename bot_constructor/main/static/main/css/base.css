@@ -5,12 +5,12 @@
   justify-content: center;
   align-items: center;
   color: #fff;
-  font-size: 16px;
+  font-size: 20px;
   font-family: sans-serif;
-  background: linear-gradient(90deg,  #464454, #70617a, #a488ac, #e8bfe6, #e8bfe6, #a488ac, #70617a, #464454);
+  background: linear-gradient(90deg,  #a488ac, rgb(255, 128, 255), rgb(255, 80, 255), #a488ac, #70617a, #a488ac);
   background-size: 400%;
   border-radius: 30px;
-  border-style:none;
+  border-style: none;
 }
 
 
@@ -158,12 +158,12 @@ header {
   transform: translateY(0);
   box-shadow:
   inset 0 0 60px whitesmoke,
-  inset 20px 0 80px rgb(188, 2, 188),
+  inset 20px 0 80px #f0f,
   inset -20px 0 80px rgb(140, 140, 140),
-  inset 20px 0 300px #70617a,
+  inset 20px 0 300px #f0f,
   inset -20px 0 300px rgb(140, 140, 140),
   0 0 50px #fff,
-  -10px 0 80px rgb(188, 2, 188),
+  -10px 0 80px #f0f,
   10px 0 80px rgb(140, 140, 140); 
 }
 
@@ -188,7 +188,8 @@ a{
   color: #fff;
   font-size: 16px;
   font-family: sans-serif;
-  background: linear-gradient(90deg,  #464454, #70617a, #a488ac, #e8bfe6, #e8bfe6, #a488ac, #70617a, #464454);
+  background: linear-gradient(90deg,  #a488ac, rgb(255, 128, 255), rgb(255, 80, 255), rgb(255, 128, 255), #a488ac);
+  /* background: linear-gradient(90deg,  #464454, #70617a, #a488ac, #e8bfe6, #e8bfe6, #a488ac, #70617a, #464454); */
   background-size: 400%;
   border-radius: 30px;
   border-style:none;
