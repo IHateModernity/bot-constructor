@@ -21,7 +21,8 @@ h1 {
     font-weight: 200;
     font-size: 64px;
 
-    color: #e8bfe6;
+    color: rgb(255, 128, 255);
+    text-shadow: 6px 6px 24px #a488ac;
 }
 
 .wrap {
@@ -42,10 +43,10 @@ letter-spacing: 1.3px;
 font-weight: 700;
 color: #313133;
 background: #a488ac;
-background: linear-gradient(90deg, #e8bfe6 0%,#a488ac 100%);
+background: linear-gradient(90deg, rgb(255, 128, 255) 0%, #9b4bb1 100%);
 border: none;
 border-radius: 1000px;
-box-shadow: 12px 12px 24px #e8bfe6;
+box-shadow: 12px 12px 24px rgb(255, 128, 255);
 transition: all 0.3s ease-in-out 0s;
 cursor: pointer;
 outline: none;
@@ -58,8 +59,8 @@ content: '';
 border-radius: 1000px;
 min-width: calc(300px + 12px);
 min-height: calc(60px + 12px);
-border: 6px solid #e8bfe6;
-box-shadow: 0 0 60px #e8bfe6;
+border: 6px solid rgb(255, 128, 255);
+box-shadow: 0 0 60px rgb(255, 128, 255);
 position: absolute;
 top: 50%;
 left: 50%;
@@ -71,6 +72,7 @@ transition: all .3s ease-in-out 0s;
 .button:hover, .button:focus {
 color: #313133;
 transform: translateY(-6px);
+box-shadow: none;
 }
 
 .create-btn:hover::before, button:focus::before {
@@ -81,7 +83,7 @@ opacity: 1;
 content: '';
 width: 30px; height: 30px;
 border-radius: 100%;
-border: 6px solid #e8bfe6;
+border: 5px solid rgb(255, 128, 255);
 
 position: absolute;
 z-index: -1;
