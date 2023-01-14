@@ -11,6 +11,7 @@ body {
   padding-bottom: 100px;
 }
 
+
 .frame {
   height: 575px;
   width: 430px;
@@ -24,12 +25,12 @@ body {
   -webkit-transition: all .5s ease;
   transition: all .5s ease;
   box-shadow:
-  inset 0 0 5px whitesmoke,
+  inset 0 0 5px rgb(213, 229, 255),
   inset 0px 0 80px rgb(252, 77, 252),
   inset 0px 0 20px rgb(140, 140, 140),
   inset 0px 0 20px rgb(252, 77, 252),
   inset 0px 0 20px rgb(140, 140, 140),
-  0 0 15px #fff,
+  0 0 15px rgb(213, 229, 255),
   0px 0 80px rgb(252, 77, 252),
   10px 0 40px rgb(140, 140, 140); 
 }
@@ -409,11 +410,6 @@ a.btn-signup:hover, a.btn-signin:hover {
   text-decoration: none;
 }
 
-
-.color1 {color: #2e2e3b;} 
-.color2 {color: #464454;}
-.color3 {color: #70617a;}
-.color4 {color: #a488ac;}
-.color5 {color: #e8bfe6;
-  background: linear-gradient(90deg,  #a488ac, rgb(255, 128, 255), rgb(255, 80, 255), #a488ac, #70617a, #a488ac);
+input {
+  background: #0F4FE6;
 }

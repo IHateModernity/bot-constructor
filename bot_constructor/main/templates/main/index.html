@@ -15,18 +15,22 @@
     <main>
 
 
-
-        <div>
+        
             {% if request.user.is_authenticated %}
-                  <div class="title"><h1>Welcome, {{user}}!</h1></div>
-<!--                  <div class="buttons">-->
-<!--                     <div class="title"><h1></h1></div>-->
-<!--                  </div>-->
+                  <div class="hero-banner">
+                    <div class="hero-banner__title" aria-hidden="true">Welcome, {{user}}!</div>
+                    <img class="hero-banner__image" src="https://picfiles.alphacoders.com/345/345755.jpg"/>
+                    <h1 class="hero-banner__title hero-banner__stroked-title">Welcome, {{user}}!</h1>
+                  </div>
                   <div class="wrap">
                       <a href="{% url 'create-new-bot' %}"><button class="button create-btn">Create new bot</button></a>
                   </div>
             {% else %}
-                  <div class="title"><h1>Welcome!</h1></div>
+                <div class="hero-banner">
+                    <div class="hero-banner__title" aria-hidden="true">Welcome!</div>
+                    <img class="hero-banner__image" src="https://picfiles.alphacoders.com/345/345755.jpg"/>
+                    <h1 class="hero-banner__title hero-banner__stroked-title">Welcome!</h1>
+                </div>
                   <div class="wrap">
                     <a href="{% url 'authentication' %}"><button class="button create-btn">Authentication</button></a>
                 </div>

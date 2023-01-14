@@ -7,6 +7,7 @@ from django.views.generic.edit import DeleteView, CreateView, UpdateView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import CreateNewBotForm
+from django.contrib import messages
 
 from .forms import CommandCreateForm, CreateNewBotForm
 from .models import Bot, Command
@@ -64,8 +65,7 @@ class BotList(LoginRequiredMixin, View):
             bot.save()
             return redirect('bots')
         else:
-            print('list is empty\n' * 10)
-        ######################
+            messages.error(request, 'Error')
 
 
         return redirect('bots')
