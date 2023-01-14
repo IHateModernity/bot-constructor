@@ -45,7 +45,7 @@
                     {% empty %}
                         <h3>Bot has no commands.</h3>
                         <br>
-                        <a href=""><input class="sub" type="submit" value="Create new"></a>
+                        <a href="{% url 'bot-add-command' %}"><input class="sub" type="submit" value="Create new"></a>
                     {% endfor %}
                 </div>
             </div>

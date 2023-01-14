@@ -167,6 +167,12 @@ header {
   10px 0 80px rgb(140, 140, 140); 
 }
 
+.left {
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .fake {
   width: 300px;

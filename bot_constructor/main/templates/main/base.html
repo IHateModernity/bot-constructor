@@ -13,9 +13,16 @@
 </head>
 <body>
   <header>
-    <span class="fake">
-      <p class="nickname">{{user}}</p>
-    </span>
+    {% if request.user.is_authenticated %}
+      <span class="fake">
+        
+        <p class="nickname">{{user}}</p>
+      </span>
+    {% else %}
+      <span class="left">
+      </span>
+    {% endif %}
+    
     <div class="header">
       <a class="btn-home header-button" href="{% url 'home' %}">Home</a>
       <a class="btn-addcommand header-button" href="{% url 'bots' %}">My bots</a>

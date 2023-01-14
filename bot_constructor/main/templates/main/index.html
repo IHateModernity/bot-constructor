@@ -27,11 +27,9 @@
                   </div>
             {% else %}
                   <div class="title"><h1>Welcome!</h1></div>
-
-                  <div class="buttons">
-                    <a id="register" href="{% url 'authentication' %}" class="btn" onclick="registerForm()">Register</a>
-                  </div>
-
+                  <div class="wrap">
+                    <a href="{% url 'authentication' %}"><button class="button create-btn">Authentication</button></a>
+                </div>
             {% endif %}
 
 
