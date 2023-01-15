@@ -1,14 +1,35 @@
-html, body * { box-sizing: border-box; font-family: 'Open Sans', sans-serif; }
+* { box-sizing: border-box; font-family: 'Open Sans', sans-serif; }
+
+main {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+canvas {
+  display: block;
+  vertical-align: bottom;
+}
+
+#particles-js {
+  position: absolute;
+  margin-top: -10px;
+  width: 100%;
+  height: 100%;
+  background: #333;
+  z-index: -1;
+}
 
 body {
   background-color: #333;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 .container {
-  margin-top: 100px;
-  width: 100%;
-  padding-top: 60px;
-  padding-bottom: 100px;
+  margin-top: 150px;
+  width: auto;
+  z-index: 0;
 }
 
 

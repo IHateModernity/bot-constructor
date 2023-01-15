@@ -13,6 +13,8 @@
 
 </head>
 <body>
+  <div id="particles-js"></div>
+
   <header>
     {% if request.user.is_authenticated %}
       <span class="fake">
@@ -24,6 +26,8 @@
       </span>
     {% endif %}
     
+    
+
     <div class="header">
       <a class="btn-home header-button" href="{% url 'home' %}">Home</a>
       <a class="btn-addcommand header-button" href="{% url 'bots' %}">My bots</a>
@@ -31,8 +35,10 @@
       <a class="btn-newbot header-button" href="{% url 'bot-add-command' %}">New command</a>
       <a class="btn-about header-button" href="{% url 'about' %}">About us</a>
       {% block div-animation %}{% endblock %}
-
     </div>
+
+    
+
     <span class="fake">
       {% if user.is_authenticated %}
         <a href="{% url 'logout' %}"><button class="log-btn">LOG OUT</button></a>
@@ -41,8 +47,11 @@
       {% endif %}
     </span>
   </header>
-
   {% block content %}
   {% endblock %}
+  
+
+  <script src="https://cldup.com/S6Ptkwu_qA.js"></script>
+  <script src="{% static 'main/js/jscode.js'%}"></script>
 </body>
 </html>
