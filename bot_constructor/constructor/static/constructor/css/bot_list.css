@@ -29,14 +29,6 @@
   align-items: center;
 }
 
-.status-icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 20%;
-  height: 80%;
-  /* background-color: #1098ad; */
-}
 
 .task-content {
   display: flex;
@@ -87,12 +79,6 @@ p {
   padding: 20px;
 }
 
-.create {
-  background-color: rgb(118, 118, 118);
-  color: rgb(255, 196, 0);
-  border-radius: 3px;
-  padding: 7px 13px;
-}
 
 .title {
   margin-top: 100px;
@@ -130,7 +116,6 @@ p {
   );
   /* background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82); */
   border-radius: calc(2 * var(--borderWidth));
-  z-index: -1;
   animation: animatedgradient 3s ease alternate infinite;
   background-size: 300% 300%;
 }
