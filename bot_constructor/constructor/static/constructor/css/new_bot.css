@@ -1,0 +1,12 @@
+.tasks-list {
+	padding: 2px;
+	height: auto;
+	margin-bottom: 100px;
+	margin-left: 100px;
+	margin-right: 100px;
+	width: 900px;
+    min-width: 900px;
+	border-radius: 10px;
+	display: flex;
+	justify-content: center;
+}

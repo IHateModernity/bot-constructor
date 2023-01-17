@@ -6,7 +6,6 @@
 
 
 .tasks-list {
-  padding: 20px;
   height: auto;
   margin-bottom: 100px;
   margin-left: 100px;
@@ -15,13 +14,17 @@
   border-radius: 10px;
   display: flex;
   justify-content: center;
+  padding: 2px;
 }
 
 .overtask {
+  z-index: 1;
   width: 100%;
+  background-color: rgb(57, 57, 57);
 }
 
 .task {
+  z-index: 1;
   width: 100%;
   height: 120px;
   display: flex;
@@ -34,7 +37,6 @@
   display: flex;
   justify-content: space-around;
   width: 50%;
-  /* background-color: #a166ab; */
 }
 
 .buttons {
@@ -42,7 +44,6 @@
   display: flex;
   justify-content: space-between;
   padding-left: 30px;
-  /* background-color:#ef4e7b; */
 }
 
 .edit-btn {width: 50px}
@@ -116,7 +117,7 @@ p {
   );
   /* background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82); */
   border-radius: calc(2 * var(--borderWidth));
-  animation: animatedgradient 3s ease alternate infinite;
+  animation: animatedgradient 4s ease alternate infinite;
   background-size: 300% 300%;
 }
 
@@ -131,7 +132,3 @@ p {
     background-position: 0% 50%;
   }
 }
-
-
-
-
