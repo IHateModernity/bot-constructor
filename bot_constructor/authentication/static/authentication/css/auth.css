@@ -36,7 +36,7 @@ body {
 .frame {
   height: 575px;
   width: 430px;
-  background:#333;
+  background: rgb(57, 57, 57);
   background-size: cover;
   margin-left: auto;
   margin-right: auto;
