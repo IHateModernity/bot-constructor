@@ -1,9 +1,61 @@
+.create-sub{
+  width: auto;
+  padding: 0 10px 0 10px;
+	height: 30px;
+	cursor: pointer;
+	border: none;
+	color: #e8bfe6;
+	font-size: 16px;
+	border-radius: 4px;
+	box-shadow: inset 0px 3px 5px rgba(255,255,255,0.5), 0px 0px 10px rgba(0,0,0,0.15);
+	background: rgb(2,0,36);
+	background: linear-gradient(45deg, rgba(2,0,36,0) 5%, rgba(255,255,255,.5) 6%, rgba(255,255,255,0) 9%, rgba(255,255,255,.5) 10%, rgba(255,255,255,0) 17%, rgba(255,255,255,.5) 19%, rgba(255,255,255,0) 21%);
+	background-size: 150%;
+	background-position: right;
+	transition: 1s;
+}
+
+.sub {
+	width: 150px;
+	height: 50px;
+	cursor: pointer;
+	border: none;
+	color: rgba(255,255,255,0.5);
+	font-size: 20px;
+	border-radius: 4px;
+	box-shadow: inset 0px 3px 5px rgba(255,255,255,0.5), 0px 0px 10px rgba(0,0,0,0.15);
+	background: rgb(2,0,36);
+	background: linear-gradient(45deg, rgba(2,0,36,0) 5%, rgba(255,255,255,.5) 6%, rgba(255,255,255,0) 9%, rgba(255,255,255,.5) 10%, rgba(255,255,255,0) 17%, rgba(255,255,255,.5) 19%, rgba(255,255,255,0) 21%);
+	background-size: 150%;
+	background-position: right;
+	transition: 1s;
+}
+
+h4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:#e8bfe6;
+}
+
+.hlam {
+  align-content: end;
+  width: 40%;
+}
+
+
 .noss {
   height: 100%;
   padding-top: 7px;
   text-align: center;
 }
 
+h3 {
+  display: block;
+  width: 40%;
+  text-align: end;
+  color:beige;
+}
 
 .tasks-list {
   height: auto;
@@ -46,7 +98,8 @@
   padding-left: 30px;
 }
 
-.edit-btn {width: 50px}
+.edit-btn {
+  width: 50px}
 
 .create-script-btn {width: 100px}
 
@@ -55,10 +108,29 @@
 .bot-btn {
   height: 30px;
   text-decoration: none;
-  color: #2e2e3b;
+  color: beige;
   font-weight: 600;
   text-align: center;
   padding: 5px;
+  background-color:#464454;
+  width: auto;
+  padding: 0 10px 0 10px;
+	cursor: pointer;
+	border: none;
+	color: #e8bfe6;
+	font-size: 13px;
+	border-radius: 4px;
+	box-shadow: inset 0px 3px 5px rgba(255,255,255,0.5), 0px 0px 10px rgba(0,0,0,0.15);
+	background: rgb(2,0,36);
+	background: linear-gradient(45deg, rgba(2,0,36,0) 5%, rgba(255,255,255,.5) 6%, rgba(255,255,255,0) 9%, rgba(255,255,255,.5) 10%, rgba(255,255,255,0) 17%, rgba(255,255,255,.5) 19%, rgba(255,255,255,0) 21%);
+	background-size: 150%;
+	background-position: right;
+	transition: 1s;
+}
+
+.noscr {
+  opacity: 0.4;
+  cursor:auto;
 }
 
 p {

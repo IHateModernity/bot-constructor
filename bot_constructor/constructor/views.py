@@ -28,14 +28,19 @@ class BotList(LoginRequiredMixin, View):
 
     def get(self, request):
         """Func which answer the GET method
-        return template with task form
         """
+        bots_without_commands = []
+        bots = Bot.objects.all().filter(user=self.request.user)
+        for bot in bots:
+            if not Command.objects.all().filter(bot_name=bot.bot_username):
+                bots_without_commands.append(bot.bot_username)
 
         return render(request,
                       self.template_name,
                       context={
                           "bots": Bot.objects.all().filter(user=self.request.user),
-                          "commands": Command.objects.all()
+                          "commands": Command.objects.all(),
+                          "bots_without_commands": bots_without_commands,
                       }
                       )
 
@@ -64,8 +69,9 @@ class BotList(LoginRequiredMixin, View):
             bot.script_path = path[6:]
             bot.save()
             return redirect('bots')
+
         else:
-            messages.error(request, 'Error')
+            return redirect('bots')
 
 
         return redirect('bots')
@@ -135,6 +141,7 @@ class BotAddCommand(LoginRequiredMixin, View):
             commit.bot_token = bot.bot_token
             commit.save()
 
+
             return redirect('bots')
 
         else:
@@ -167,6 +174,7 @@ class CommandDeleteView(LoginRequiredMixin, DeleteView):
     context_object_name = 'command'
 
     def get_success_url(self):
+        bot = Bot.objects.get(bot_username=commit.bot_name)
         command_id = self.object.bot_name
         return reverse_lazy('bot-edit-page', kwargs={'pk': command_id})
 

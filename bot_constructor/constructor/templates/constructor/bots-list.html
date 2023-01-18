@@ -29,20 +29,35 @@
                                     <td>
                                             <form method="post">
                                                 {% csrf_token %}
-                                                <button class="bot-btn create-script-btn" type="submit" name="{{ bot.bot_username }} {{ bot.bot_token }}">Create script</button>
+                                                {% if bot.bot_username in bots_without_commands %}
+                                                {% else %}
+                                                    <button class="bot-btn create-script-btn" type="submit" name="{{ bot.bot_username }} {{ bot.bot_token }}">Create script</button>
+                                                {% endif %}
+                                                
                                             </form>
                                     </td>
                                     <td>
                                         {% if bot.has_script %}
                                             <a href="{% get_media_prefix %}{{ bot.script_path }}" download><button class="bot-btn script-btn">Download</button></a>
                                         {% else %}
-                                            <a><div class="noss script-btn"><p>No script</p></div></a>
+                                            {% if bot.bot_username in bots_without_commands %}
+                                                <a href="{% url 'bot-add-command' %}"><input class="create-sub" type="submit" value="Create new command"></a>
+                                            {% else %}
+                                                <a><button class="bot-btn script-btn noscr">No script</button></a>
+                                            {% endif %}
                                         {% endif %}
                                     </td>
                                 </div>
                         </div>
                         {% empty %}
-                            <h2>Nothing is here...</h2>
+                            <div class="overtask">
+                                <div class="task">
+                                    <h3>Nothing is here...</h3>
+                                    <br>
+                                    <a class='hlam' href="{% url 'create-new-bot' %}"><input class="sub" type="submit" value="Create new"></a>
+                                </div>
+                            </div>
+
                         {% endfor %}
             </div>
         </div>
