@@ -94,7 +94,19 @@ class CreateNewBot(LoginRequiredMixin, CreateView):
 
     def post(self, request):
         form = CreateNewBotForm(request.POST)
-        if form.is_valid():
+
+        commit = form.save(commit=False)
+
+        fl = True
+
+        bots = Bot.objects.all()
+        for bot in bots:
+            if not fl: break
+            if bot.bot_username == str(commit):
+                fl = False
+
+
+        if form.is_valid() and fl:
             commit = form.save(commit=False)
             commit.user = request.user
             form.save()
