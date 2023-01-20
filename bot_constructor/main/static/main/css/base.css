@@ -1,5 +1,23 @@
 
 /******************************************************************************** */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body{
+font-family: sans-serif;
+background: #333;
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+padding-top: 10px;
+height: 100vh;
+overflow-y: hidden;
+}
+
+
 canvas {
   display: block;
   vertical-align: bottom;
@@ -14,21 +32,6 @@ canvas {
   z-index: 0;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-}
-
-body{
-  font-family: sans-serif;
-  background: #333;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding-top: 10px;
-  height: 100vh;
-  overflow-y: hidden;
-}
 
 header {
     display: flex;
@@ -59,21 +62,6 @@ header {
   text-align: center;
   color: #f1f1f1;
   cursor: pointer;
-}
-
-.nickname {
-  width: 100px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  font-size: 20px;
-  font-family: sans-serif;
-  background: linear-gradient(90deg,  #a488ac, rgb(255, 128, 255), rgb(255, 80, 255), #a488ac, #70617a, #a488ac);
-  background-size: 400%;
-  border-radius: 30px;
-  border-style: none;
 }
 
 
@@ -254,10 +242,7 @@ a{
   animation: animate 8s linear infinite;
 }
 
-/* #2e2e3b, #464454, #70617a, #a488ac, #e8bfe6, #e8bfe6, #a488ac, #70617a, #464454, #2e2e3b */
+.nickname {
+  font-size: 18px;
 
-.color1 {color: #2e2e3b;} 
-.color2 {color: #464454;}
-.color3 {color: #70617a;}
-.color4 {color: #a488ac;}
-.color5 {color: #e8bfe6;}
+}
