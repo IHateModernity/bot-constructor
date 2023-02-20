@@ -14,7 +14,7 @@ from .models import CustomUser
 def authenticate_(request):
     """Authentication func
     can login and register and same page"""
-    template_name = 'registration/auth.html'
+    template_name = 'authentication/registration/auth.html'
 
     if request.method == "GET":
         context = {
